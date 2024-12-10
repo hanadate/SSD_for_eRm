@@ -1,26 +1,57 @@
 # Sample Size Determination for extended Rasch model.
 # refer to https://lkumle.github.io/power_notebooks/Scenario3_notebook.html
+#===== Libraries
 library(tidyverse)
 library(lme4)
 library(simr)
 library(mixedpower)
+library(irtrees)
+library(apaTables)
 
-# View VergAgg in wide form format
-VerbAgg %>% 
-  dplyr::select(-c(resp, btype, situ, mode, Anger, Gender)) %>% 
-  tidyr::pivot_wider(names_from=item, values_from=r2)
-
+#===== lme4::
 # View it in long form format
-head(VerbAgg)
+lme4::VerbAgg %>% glimpse()
 
-# apply regular LLTM for actual data
+# View VerbAgg in wide form format
+lme4::VerbAgg %>% 
+  dplyr::select(-c(resp, btype, situ, mode, Anger)) %>% 
+  tidyr::pivot_wider(names_from=item, values_from=r2) %>% 
+  glimpse()
+
+# item-design matrix
+lme4::VerbAgg %>% dplyr::distinct(item, situ, mode, btype)
+
+# compare r2 with resp
+lme4::VerbAgg %>% dplyr::distinct(resp, r2)
+
+#===== irtrees::
+irtrees::VerbAgg2 %>% attributes(); irtrees::VerbAgg2 %>% head()
+irtrees::VerbAgg3 %>% attributes(); irtrees::VerbAgg3 %>% head()
+
+# mapping matrix for linear tree
+linear_tree_map <- data.frame(y1=c(0,1,1), y2=c(NA,0,1)) %>% 
+  `rownames<-`(c("no","perhaps","yes")) %>% 
+  as.matrix()
+# S1,S2 are situations where someone else is to be blamed.
+# S3,S4 are situations where one is self to be blamed.
+
+#===== LLTM
 # The `-1` or `0` avoids that the first item is used as the reference item and the basis for the intercept. 
 lltm <- glmer(formula= r2 ~ -1 + btype + mode + situ + (1|id),
               data=VerbAgg, family=binomial)
+# result
 lltm
+# coefficient
 lltm@beta
 # Actual number of persons 
 length(unique(VerbAgg$id))
+
+#===== RSM
+VerbAgg3T <- irtrees::dendrify(irtrees::VerbAgg3[,-(1:2)], linear_tree_map)
+VerbAgg3T %>% is.list()
+VerbAgg3T %>% head
+M3linTree <- lme4::glmer(value ~ 0 + item + node + (1|person),
+                         data=VerbAgg3T, family=binomial)
 
 #== Scenario: You don't have any data like VerbAgg.
 # Delete response and person id to make only item dataset
