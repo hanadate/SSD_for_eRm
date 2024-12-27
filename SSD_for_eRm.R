@@ -1,136 +1,329 @@
+# replicate example for eRm package by glmer.
+#===== libraries
+library(eRm)
+library(lme4)
+library(tidyverse)
+#===== Rasch model
+# eRm
+erm.rasch <- eRm::RM(raschdat1)
+# pres.rasch <- person.parameter(res.rasch)
+
+# glmer
+raschdat1_long <- raschdat1 %>% 
+  mutate(person=rownames(.)) %>% 
+  pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp")
+
+glmer.rasch <- 
+  lme4::glmer(resp ~ item + (1|person), family=binomial, data=raschdat1_long,
+              glmerControl(optimizer="bobyqa", optCtrl=list(maxfun=100000)))
+summary(glmer.rasch)
+
+glmer.rasch.est.se <- summary(glmer.rasch)$coefficients %>% 
+  as.data.frame %>% 
+  mutate(item=rownames(.)) %>% 
+  mutate(item=str_remove(item, "item")) %>% 
+  rename(glmer.est=Estimate,
+         glmer.se="Std. Error") %>% 
+  select(item, glmer.est, glmer.se)
+
+erm.rasch.est <- erm.rasch$etapar %>% 
+  as.data.frame() %>% 
+  mutate(item=names(erm.rasch$etapar)) %>% 
+  rename(eRm.est=".")
+erm.rasch.se <- erm.rasch$se.eta %>% 
+  as.data.frame %>% 
+  mutate(item=names(erm.rasch$etapar)) %>% 
+  rename(eRm.se=".")
+erm.rasch.est.se <- full_join(erm.rasch.est,erm.rasch.se, by="item")
+full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item")
+
+#====== below is depricated 
 # Sample Size Determination for extended Rasch model.
 # refer to https://lkumle.github.io/power_notebooks/Scenario3_notebook.html
 #===== Libraries
 library(tidyverse)
 library(lme4)
+library(eRm)
 library(simr)
 library(mixedpower)
 library(irtrees)
 library(apaTables)
+library(parallel)
+library(foreach)
 
 #===== lme4::
 # View it in long form format
 lme4::VerbAgg %>% glimpse()
-
-# View VerbAgg in wide form format
-lme4::VerbAgg %>% 
-  dplyr::select(-c(resp, btype, situ, mode, Anger)) %>% 
-  tidyr::pivot_wider(names_from=item, values_from=r2) %>% 
-  glimpse()
-
-# item-design matrix
-lme4::VerbAgg %>% dplyr::distinct(item, situ, mode, btype)
-
-# compare r2 with resp
-lme4::VerbAgg %>% dplyr::distinct(resp, r2)
-
-#===== irtrees::
-irtrees::VerbAgg2 %>% attributes(); irtrees::VerbAgg2 %>% head()
-irtrees::VerbAgg3 %>% attributes(); irtrees::VerbAgg3 %>% head()
-
 # mapping matrix for linear tree
-linear_tree_map <- data.frame(y1=c(0,1,1), y2=c(NA,0,1)) %>% 
+linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
   `rownames<-`(c("no","perhaps","yes")) %>% 
   as.matrix()
 # S1,S2 are situations where someone else is to be blamed.
 # S3,S4 are situations where one is self to be blamed.
+# add a column has original responses for linear tree map 
+linear_tree_map_resp <- 
+  rownames_to_column(as.data.frame(linear_tree_map), var="resp")
+# separate tables to dendrify
+design_matrix <- lme4::VerbAgg %>% 
+  distinct(item, btype, situ, mode) %>% 
+  `rownames<-`(.$item) 
+persons <- lme4::VerbAgg %>% 
+  dplyr::distinct(id, Gender, Anger)
+responses <- lme4::VerbAgg %>% 
+  dplyr::distinct(id, item, resp) %>% 
+  dplyr::left_join(., linear_tree_map_resp, by=c("resp")) %>% 
+  tidyr::pivot_longer(cols=starts_with("node"),
+                      names_to="node",
+                      values_to="resp_node") %>% 
+  dplyr::arrange(id,item) %>% 
+  tidyr::drop_na()
+# unite tables 
+verbagg_dendrified <- design_matrix %>% 
+  left_join(., responses, by=c("item")) %>% 
+  arrange(item)
+# separate by item
+for(i in c("S1","S2","S3","S4")){
+  assign(paste0(i,"_dendrified"),verbagg_dendrified %>% filter(str_detect(item,i)))
+}
+
+
+# separate by item
+for(i in c("S1","S2","S3","S4")){
+  assign(i,VerbAgg %>% filter(str_detect(item,i)))
+}
+for(i in c("S1","S2","S3","S4")){
+  assign(
+    paste0(i,"_wide2"),VerbAgg %>% filter(str_detect(item,i)) %>% 
+      dplyr::mutate(r2=ifelse(r2=="Y",1,0)) %>% 
+      tidyr::pivot_wider(id_cols=id, names_from=item, values_from=r2)
+  )
+}
+for(i in c("S1","S2","S3","S4")){
+  assign(
+    paste0(i,"_wide3"),VerbAgg %>% filter(str_detect(item,i)) %>% 
+      dplyr::mutate(resp=case_when(
+        resp=="yes" ~ 2,
+        resp=="perhaps" ~ 1,
+        resp=="no" ~ 0
+      )) %>% 
+      tidyr::pivot_wider(id_cols=id, names_from=item, values_from=resp)
+  )
+}
+# VerbAgg_wide3 <- dplyr::inner_join(S1_wide3, S2_wide3, by=c("id")) %>% 
+#   dplyr::inner_join(., S3_wide3, by=c("id")) %>% 
+#   dplyr::inner_join(., S4_wide3, by=c("id"))
+for(i in c("S1","S2","S3","S4")){
+  assign(paste0(i,"_design_num"),
+         design_matrix %>% filter(str_detect(item,i)) %>% 
+           fastDummies::dummy_cols(select_columns=c("btype","situ","mode"),
+                                   remove_first_dummy=TRUE,
+                                   remove_selected_columns=TRUE) %>% 
+           dplyr::select(-item)
+  )
+}
+design_matrix_num <- bind_rows(S1_design_num, S2_design_num, S3_design_num, S4_design_num)
+
 
 #===== LLTM
-# The `-1` or `0` avoids that the first item is used as the reference item and the basis for the intercept. 
-lltm <- glmer(formula= r2 ~ -1 + btype + mode + situ + (1|id),
+# `-1` or `0` in formula avoids that the first item is used as the reference item and the basis for the intercept. 
+# Thus, from c categories, formula with -1 encodes into c columns, while formula without -1 encodes into c-1 columns. 
+# formulation for glmer is explained in 9.6 and 19.2, Crawley 2013
+lltm <- glmer(formula= r2 ~ btype +situ + mode + (1|id),
               data=VerbAgg, family=binomial)
 # result
-lltm
-# coefficient
-lltm@beta
+(summary_lltm <- summary(lltm))
 # Actual number of persons 
 length(unique(VerbAgg$id))
 
+# eRm for LLTM
+erm_lltm <- eRm::LLTM(VerbAgg2[,-c(1:2)]-1, design_matrix_num)
+
+# compare glmer with eRm for LLTM
+cbind(summary_lltm$coefficients[-1,1:2], 
+      t(rbind(erm_lltm$etapar,erm_lltm$se.eta)) %>% 
+        `colnames<-`(c("Estimate", "Std. Error")))
+
 #===== RSM
-VerbAgg3T <- irtrees::dendrify(irtrees::VerbAgg3[,-(1:2)], linear_tree_map)
-VerbAgg3T %>% is.list()
-VerbAgg3T %>% head
-M3linTree <- lme4::glmer(value ~ 0 + item + node + (1|person),
-                         data=VerbAgg3T, family=binomial)
+# VerbAgg3T <- irtrees::dendrify(irtrees::VerbAgg3[,-(1:2)], linear_tree_map)
+# VerbAgg3T %>% is.list()
+# VerbAgg3T %>% head
+# VerbAgg3T %>% distinct(item,node)
+# irtrees::dendrify is 
 
-#== Scenario: You don't have any data like VerbAgg.
-# Delete response and person id to make only item dataset
-item_property <- VerbAgg %>% 
-  dplyr::select(item, btype, situ, mode) %>% 
-  unique
-glimpse(item_property) #24 * 4
-length(unique(item_property$item)) #24
-
-# create artificial data for random effect
-person_id <- (1:30)
-# combine person id and item id
-artificial_data <- expand.grid(id=person_id, item=item_property$item) %>% 
-  dplyr::left_join(., item_property, by="item")
-
-# set fixed effect (intercept, btype, mode, situ) without pre information
-fixed_effects <- lltm@beta
-# set random intercept variance
-random_variance <- list(lltm@theta^2)
-# create Glmer for regular LLTM
-artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
-                              family="binomial", fixef=fixed_effects, 
-                              VarCorr=random_variance, data=artificial_data)
 t <- proc.time()
-power <- mixedpower(model=artificial_glmer,
-                    data=artificial_data,
-                    fixed_effects=c("btype","mode","situ"),
-                    simvar="id", steps=seq(from=50,to=300,by=50),
-                    critical_value=2, 
-                    # SESOI=fixed_effects*0.85,
-                    n_sim=1000)
-# R provides two file formats of its own for storing data, .RDS and .RData. 
-# RDS files can store a single R object, and RData files can store multiple R objects.
-saveRDS(power, "lltm_params_from_actual.rds")
-proc.time()-t # 3708 sec 
-lltm_params_from_actual <- readRDS("lltm_params_from_actual.rds") %>% 
-  dplyr::mutate(mode="actual")
-# summary(lltm_params_from_actual)
-# multiplotPower(lltm_params_from_actual)
+rsm <- lme4::glmer(resp_node ~ item + node + (1|id),
+                   data=verbagg_dendrified, family=binomial)
+proc.time()-t # 154sec
+(summary_rsm <- summary(rsm))
+# eRm for RSM
+erm_rsm <- eRm::RSM(VerbAgg3[,-c(1:2)]-1, sum0=TRUE)
+erm_rsm
 
+# compare glmer with eRm for RSM
+summary_rsm$coefficients
 
-# create Glmer for regular LLTM with fixed_effect/2
-artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
-                              family="binomial", fixef=fixed_effects/2, 
-                              VarCorr=random_variance, data=artificial_data)
+cbind(
+  summary_rsm$coefficients[order(rownames(summary_rsm$coefficients)),][-c(1,nrow(summary_rsm$coefficients)),1:2] 
+  ,
+  t(rbind(erm_rsm$etapar,erm_rsm$se.eta)) %>% 
+    `colnames<-`(c("Estimate", "Std. Error")) %>% 
+    .[order(rownames(.)),] %>% 
+    .[-1,] 
+)
+
+#===== LRSM
 t <- proc.time()
-power <- mixedpower(model=artificial_glmer,
-                    data=artificial_data,
-                    fixed_effects=c("btype","mode","situ"),
-                    simvar="id", steps=seq(from=50,to=300,by=50),
-                    critical_value=2, 
-                    # SESOI=fixed_effects*0.85,
-                    n_sim=1000)
-# R provides two file formats of its own for storing data, .RDS and .RData. 
-# RDS files can store a single R object, and RData files can store multiple R objects.
-saveRDS(power, "lltm_params_from_fixed_half.rds")
-proc.time()-t 
-lltm_params_from_fixed_half <- readRDS("lltm_params_from_fixed_half.rds") %>% 
-  dplyr::mutate(mode="half_fixef")
+lrsm <- lme4::glmer(resp_node ~ btype + situ + mode + node + (1|id),
+                    data=verbagg_dendrified, family=binomial)
+proc.time()-t # 7sec
+(summary_lrsm <- summary(lrsm))
+# eRm for LRSM
+design_matrix_lrsm <- slice(design_matrix_num, rep(1:n(), each=2)) %>% 
+  mutate(across(everything(), ~ifelse(row_number(.)%%2==1,.,.*2))) %>% 
+  mutate(omega=ifelse(row_number()%%2==1,0,1))
+erm_lrsm <- eRm::LRSM(X=VerbAgg3[,-c(1:2)]-1, 
+                      W=design_matrix_lrsm
+)
+# compare glmer with eRm for LLTM
+cbind(summary_lrsm$coefficients[-1,1:2]
+      ,      
+      t(rbind(erm_lrsm$etapar,erm_lrsm$se.eta)) %>% 
+        `colnames<-`(c("Estimate", "Std. Error"))
+)
 
-# create Glmer for regular LLTM with variance/2
-random_variance_half <- list(lltm@theta^2/2)
-artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
-                              family="binomial", fixef=fixed_effects, 
-                              VarCorr=random_variance_half, data=artificial_data)
+# #===== PCM
+# t <- proc.time()
+# pcm_ <- lme4::glmer(resp_node ~ 0 + (0+item):(0+node) + (1|id),
+#                    data=verbagg_dendrified,
+#                    family=binomial)
+# proc.time()-t #700sec
+# saveRDS(pcm, "pcm.rds")
+# pcm <- readRDS("pcm.rds")
+# (summary_pcm <- summary(pcm))
+# # eRm for PCM
+# erm_pcm <- eRm::PCM(X=VerbAgg3[,-c(1:2)], sum0=TRUE)
+# # compare glmer with eRm for LLTM
+# summary_pcm$coefficients[order(rownames(summary_pcm$coefficients)),][-c(1,nrow(summary_pcm$coefficients)),1:2] %>% 
+#   rownames ->a; a
+# t(rbind(erm_pcm$etapar,erm_pcm$se.eta)) %>% 
+#   `colnames<-`(c("Estimate", "Std. Error")) %>% 
+#   .[order(rownames(.)),] %>% 
+#   rownames ->b; b
+# data.frame(c(0,a),b)
+# # glmer: s1docurse, s4wantshout in pcm do not exist.
+# # eRm: s1wantcurse in erm_pcm does not exist.
+
+#===== LPCM
+# adjacent-category logit for each item independent on number of categories.
 t <- proc.time()
-power <- mixedpower(model=artificial_glmer,
-                    data=artificial_data,
-                    fixed_effects=c("btype","mode","situ"),
-                    simvar="id", steps=seq(from=50,to=300,by=50),
-                    critical_value=2, 
-                    # SESOI=fixed_effects*0.85,
-                    n_sim=1000)
-# R provides two file formats of its own for storing data, .RDS and .RData. 
-# RDS files can store a single R object, and RData files can store multiple R objects.
-saveRDS(power, "lltm_params_from_var_half.rds")
-proc.time()-t 
-lltm_params_from_var_half <- readRDS("lltm_params_from_var_half.rds") %>% 
-  dplyr::mutate(mode="half_var")
+lpcm <- lme4::glmer(resp_node ~ btype + situ + mode + item:node + (1|id),
+                    data=verbagg_dendrified, family=binomial)
+lpcm
+proc.time()-t # 13sec
+(summary_lpcm <- summary(lpcm))
 
-lltm_params <- dplyr::bind_rows(lltm_params_from_actual, lltm_params_from_fixed_half, lltm_params_from_var_half)
-multiplotPower(lltm_params)
+# eRm for LPCM
+num_item <- length(unique(design_matrix$item))
+design_matrix_lpcm <- foreach(i=seq(num_item), .combine=rbind) %do% {
+  dm_temp <- t(data.frame(c1=rep(0,num_item),c2=rep(0,num_item)))
+  dm_temp[2,i] <- 1
+  rownames(dm_temp) <- paste0(unique(design_matrix$item)[i],"_",rownames(dm_temp))
+  return(dm_temp)
+} %>% 
+  `colnames<-`(as.character(unique(design_matrix$item))) %>% 
+  bind_cols(
+    slice(design_matrix_num, rep(1:n(), each=2)) %>% 
+      mutate(across(everything(), ~ifelse(row_number(.)%%2==1,.,.*2))),
+    .)
+    
+erm_lrsm <- eRm::LRSM(X=VerbAgg3[,-c(1:2)]-1, 
+                      W=design_matrix_lpcm)
+erm_lrsm
+    
+    
+    
+    
+    
+    
+    #== Scenario: You don't have any data like VerbAgg.
+    # Delete response and person id to make only item dataset
+    item_property <- VerbAgg %>% 
+      dplyr::select(item, btype, situ, mode) %>% 
+      unique
+    glimpse(item_property) #24 * 4
+    length(unique(item_property$item)) #24
+    
+    # create artificial data for random effect
+    person_id <- (1:30)
+    # combine person id and item id
+    artificial_data <- expand.grid(id=person_id, item=item_property$item) %>% 
+      dplyr::left_join(., item_property, by="item")
+    
+    # set fixed effect (intercept, btype, mode, situ) without pre information
+    fixed_effects <- lltm@beta
+    # set random intercept variance
+    random_variance <- list(lltm@theta^2)
+    # create Glmer for regular LLTM
+    artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
+                                  family="binomial", fixef=fixed_effects, 
+                                  VarCorr=random_variance, data=artificial_data)
+    t <- proc.time()
+    power <- mixedpower(model=artificial_glmer,
+                        data=artificial_data,
+                        fixed_effects=c("btype","mode","situ"),
+                        simvar="id", steps=seq(from=50,to=300,by=50),
+                        critical_value=2, 
+                        # SESOI=fixed_effects*0.85,
+                        n_sim=1000)
+    # R provides two file formats of its own for storing data, .RDS and .RData. 
+    # RDS files can store a single R object, and RData files can store multiple R objects.
+    saveRDS(power, "lltm_params_from_actual.rds")
+    proc.time()-t # 3708 sec 
+    lltm_params_from_actual <- readRDS("lltm_params_from_actual.rds") %>% 
+      dplyr::mutate(mode="actual")
+    # summary(lltm_params_from_actual)
+    # multiplotPower(lltm_params_from_actual)
+    
+    
+    # create Glmer for regular LLTM with fixed_effect/2
+    artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
+                                  family="binomial", fixef=fixed_effects/2, 
+                                  VarCorr=random_variance, data=artificial_data)
+    t <- proc.time()
+    power <- mixedpower(model=artificial_glmer,
+                        data=artificial_data,
+                        fixed_effects=c("btype","mode","situ"),
+                        simvar="id", steps=seq(from=50,to=300,by=50),
+                        critical_value=2, 
+                        # SESOI=fixed_effects*0.85,
+                        n_sim=1000)
+    # R provides two file formats of its own for storing data, .RDS and .RData. 
+    # RDS files can store a single R object, and RData files can store multiple R objects.
+    saveRDS(power, "lltm_params_from_fixed_half.rds")
+    proc.time()-t 
+    lltm_params_from_fixed_half <- readRDS("lltm_params_from_fixed_half.rds") %>% 
+      dplyr::mutate(mode="half_fixef")
+    
+    # create Glmer for regular LLTM with variance/2
+    random_variance_half <- list(lltm@theta^2/2)
+    artificial_glmer <- makeGlmer(formula= r2 ~ -1 + btype + mode + situ + (1|id), 
+                                  family="binomial", fixef=fixed_effects, 
+                                  VarCorr=random_variance_half, data=artificial_data)
+    t <- proc.time()
+    power <- mixedpower(model=artificial_glmer,
+                        data=artificial_data,
+                        fixed_effects=c("btype","mode","situ"),
+                        simvar="id", steps=seq(from=50,to=300,by=50),
+                        critical_value=2, 
+                        # SESOI=fixed_effects*0.85,
+                        n_sim=1000)
+    # R provides two file formats of its own for storing data, .RDS and .RData. 
+    # RDS files can store a single R object, and RData files can store multiple R objects.
+    saveRDS(power, "lltm_params_from_var_half.rds")
+    proc.time()-t 
+    lltm_params_from_var_half <- readRDS("lltm_params_from_var_half.rds") %>% 
+      dplyr::mutate(mode="half_var")
+    
+    lltm_params <- dplyr::bind_rows(lltm_params_from_actual, lltm_params_from_fixed_half, lltm_params_from_var_half)
+    multiplotPower(lltm_params)
+    
