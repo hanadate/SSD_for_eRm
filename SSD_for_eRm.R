@@ -5,7 +5,7 @@ library(lme4)
 library(tidyverse)
 #===== Rasch model
 # eRm
-erm.rasch <- eRm::RM(raschdat1)
+erm.rasch <- eRm::RM(raschdat1, sum0=FALSE)
 # pres.rasch <- person.parameter(res.rasch)
 
 # glmer
@@ -13,18 +13,33 @@ raschdat1_long <- raschdat1 %>%
   mutate(person=rownames(.)) %>% 
   pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp")
 
-glmer.rasch <- 
-  lme4::glmer(resp ~ item + (1|person), family=binomial, data=raschdat1_long,
-              glmerControl(optimizer="bobyqa", optCtrl=list(maxfun=100000)))
+# Assume 'raschdat1.long' is your long-format data frame with 'value', 'item', and 'ID'
+# value: binary response (0 or 1)
+# item: factor identifying items
+# ID: subject identifier
+items <- unique(raschdat1_long)
+number_of_items <- length(unique(raschdat1_long$item))
+
+# Fit the model using glmer
+t<-proc.time()
+glmer.rasch <- glmer(resp ~ item + (1 | person), 
+                   data = raschdat1_long, 
+                   family = binomial,
+                   control=lme4::glmerControl(optCtrl=list(maxfun=100000))
+                   )
+proc.time()-t #41sec
 summary(glmer.rasch)
 
+# compare glmer with eRm 
 glmer.rasch.est.se <- summary(glmer.rasch)$coefficients %>% 
   as.data.frame %>% 
   mutate(item=rownames(.)) %>% 
-  mutate(item=str_remove(item, "item")) %>% 
+  mutate(item=str_replace(item, "item", "")) %>% 
   rename(glmer.est=Estimate,
          glmer.se="Std. Error") %>% 
-  select(item, glmer.est, glmer.se)
+  select(item, glmer.est, glmer.se) %>% 
+  # invert easiness to difficulty.
+  mutate(glmer.est=-1*glmer.est)
 
 erm.rasch.est <- erm.rasch$etapar %>% 
   as.data.frame() %>% 
@@ -34,8 +49,12 @@ erm.rasch.se <- erm.rasch$se.eta %>%
   as.data.frame %>% 
   mutate(item=names(erm.rasch$etapar)) %>% 
   rename(eRm.se=".")
+
 erm.rasch.est.se <- full_join(erm.rasch.est,erm.rasch.se, by="item")
-full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item")
+full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item") %>% 
+  filter(item!="(Intercept)") %>% 
+  mutate(item=as.integer(str_remove(item,"I"))) %>%
+  arrange(item)
 
 #====== below is depricated 
 # Sample Size Determination for extended Rasch model.
