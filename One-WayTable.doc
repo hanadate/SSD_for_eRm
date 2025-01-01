@@ -1,0 +1,68 @@
+{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;}}
+\paperw15840 \paperh12240 \margl1440 \margr1440 \margt1440 \margb1440 \landscape 
+{\pard Table 1 \par}
+{\pard  \par}
+{\pard\i Descriptive statistics for libido as a function of dose. \par}
+{\pard  \par}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2051 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2915 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4626 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5490 
+\pard\sa0\sb0\intbl\qr{dose}\cell
+\pard\sa0\sb0\intbl\qc{{\i M}}\cell
+\pard\sa0\sb0\intbl\qc{{{\i M}\par}{95% CI\par}[LL, UL]}\cell
+\pard\sa0\sb0\intbl\qc{{\i SD}}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2051 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx2915 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx4626 
+\clbrdrt\brdrw15\brdrs
+\clvertalc\cellx5490 
+\pard\sa0\sb0\intbl\qr{Placebo}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{2.20}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx598{[0.58, 3.82]}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{1.30}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clvertalc\cellx2051 
+\clvertalc\cellx2915 
+\clvertalc\cellx4626 
+\clvertalc\cellx5490 
+\pard\sa0\sb0\intbl\qr{Low Dose}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{3.20}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx598{[1.58, 4.82]}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{1.30}\cell
+\row
+}
+{
+\trowd \trgaph100
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx2051 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx2915 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx4626 
+\clbrdrb\brdrw15\brdrs
+\clvertalc\cellx5490 
+\pard\sa0\sb0\intbl\qr{High Dose}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{5.00}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx598{[3.04, 6.96]}\cell
+\pard\sa0\sb0\intbl\tqdec\tldot\tx302{1.58}\cell
+\row
+}
+{\pard \par}{\pard{\i Note.} {\i M} and {\i SD} represent mean and standard deviation, respectively. {\i LL} and {\i UL} indicate the lower and upper limits of the 95% confidence interval for the mean, respectively. The confidence interval is a plausible range of population means that could have created a sample mean (Cumming, 2014).\par}
+}

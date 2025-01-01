@@ -3,34 +3,30 @@
 library(eRm)
 library(lme4)
 library(tidyverse)
+library(stargazer)
+
 #===== Rasch model
-# eRm
-erm.rasch <- eRm::RM(raschdat1, sum0=FALSE)
+#==== eRm
+erm.rasch <- RM(raschdat1, sum0=FALSE)
 # pres.rasch <- person.parameter(res.rasch)
 
-# glmer
+#==== glmer
 raschdat1_long <- raschdat1 %>% 
   mutate(person=rownames(.)) %>% 
   pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp")
-
-# Assume 'raschdat1.long' is your long-format data frame with 'value', 'item', and 'ID'
-# value: binary response (0 or 1)
-# item: factor identifying items
-# ID: subject identifier
-items <- unique(raschdat1_long)
-number_of_items <- length(unique(raschdat1_long$item))
-
+items <- unique(raschdat1_long$item)
+number_of_items <- length(items)
 # Fit the model using glmer
 t<-proc.time()
 glmer.rasch <- glmer(resp ~ item + (1 | person), 
                    data = raschdat1_long, 
                    family = binomial,
-                   control=lme4::glmerControl(optCtrl=list(maxfun=100000))
+                   control=glmerControl(optCtrl=list(maxfun=100000))
                    )
 proc.time()-t #41sec
 summary(glmer.rasch)
 
-# compare glmer with eRm 
+#==== compare glmer with eRm 
 glmer.rasch.est.se <- summary(glmer.rasch)$coefficients %>% 
   as.data.frame %>% 
   mutate(item=rownames(.)) %>% 
@@ -51,11 +47,256 @@ erm.rasch.se <- erm.rasch$se.eta %>%
   rename(eRm.se=".")
 
 erm.rasch.est.se <- full_join(erm.rasch.est,erm.rasch.se, by="item")
-full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item") %>% 
+compare.rasch <- full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item") %>% 
   filter(item!="(Intercept)") %>% 
   mutate(item=as.integer(str_remove(item,"I"))) %>%
   arrange(item)
 
+stargazer(compare.rasch, summary=FALSE, rownames=FALSE,
+          omit.table.layout="-!")
+
+#===== LLTM
+#==== eRm
+# design matrix
+W <- matrix(c(1,2,1,3,2,2,2,1,1,1),ncol=2) %>% 
+  as.data.frame() %>% 
+  `colnames<-`(c("eta 1","eta 2")) %>% 
+  mutate(item=paste0("I",row_number()))
+erm.lltm <- LLTM(lltmdat2, W=W[1:2], sum0=FALSE)
+
+#==== glmer
+lltmdat2_long <- lltmdat2 %>% 
+  mutate(person=rownames(.)) %>% 
+  pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp") %>%
+  inner_join(., W, by=c("item"))
+items <- unique(lltmdat2_long$item)
+number_of_items <- length(items)
+# Join items
+# Fit the model using glmer
+t<-proc.time()
+glmer.lltm <- glmer(resp ~ `eta 1` + `eta 2` + (1|person), 
+                     data=lltmdat2_long, family=binomial,
+                     control=glmerControl(optCtrl=list(maxfun=100000))
+)
+proc.time()-t #  sec
+summary(glmer.lltm)
+
+#==== compare glmer with eRm 
+glmer.lltm.est.se <- summary(glmer.lltm)$coefficients %>% 
+  as.data.frame %>% 
+  mutate(item=rownames(.)) %>% 
+  mutate(item=str_replace(item, "item", "")) %>% 
+  rename(glmer.est=Estimate,
+         glmer.se="Std. Error") %>% 
+  select(item, glmer.est, glmer.se) %>% 
+  # not need to invert easiness to difficulty.
+  mutate(glmer.est=glmer.est)
+
+erm.lltm.est <- erm.lltm$etapar %>% 
+  as.data.frame() %>% 
+  mutate(item=names(erm.lltm$etapar)) %>% 
+  rename(eRm.est=".")
+erm.lltm.se <- erm.lltm$se.eta %>% 
+  as.data.frame %>% 
+  mutate(item=names(erm.lltm$etapar)) %>% 
+  rename(eRm.se=".")
+
+erm.lltm.est.se <- full_join(erm.lltm.est,erm.lltm.se, by="item")
+compare.lltm <- full_join(glmer.lltm.est.se, erm.lltm.est.se, by="item") %>% 
+  filter(item!="(Intercept)") %>% 
+  mutate(item=as.integer(str_remove(item,"F"))) %>%
+  arrange(item) %>% 
+  rename(eta=item)
+
+stargazer(compare.lltm, summary=FALSE, rownames=FALSE, 
+          omit.table.layout="-!")
+
+#===== LRSM
+#==== eRm 
+erm.lrsm <- LRSM(lrsmdat, mpoints = 2, groupvec = 1, sum0 = FALSE)
+# design matrix is automatically generated
+W <- erm.lrsm$W %>% 
+  as.data.frame() %>% 
+  mutate(item.cate.mp=rownames(.)) %>% 
+  separate_wider_delim(item.cate.mp, delim=" ", names=c("item.cate","mp")) %>% 
+  separate_wider_delim(item.cate, delim=".", names=c("item","cate"))
+
+#==== glmer
+# mapping matrix for linear tree
+linear_tree_map <- data.frame(node1=c(0,1,1,1), node2=c(NA,0,1,1), node3=c(NA,NA,0,1)) %>% 
+  `rownames<-`(c(0,1,2,3)) %>% 
+  as.matrix()
+# add a column has original responses for linear tree map 
+linear_tree_map_resp <- 
+  rownames_to_column(as.data.frame(linear_tree_map), var="resp") %>% 
+  mutate(resp=as.double(resp))
+# dendrify
+lrsmdat_long <- lrsmdat %>%
+  rownames_to_column(., var="person") %>%
+  pivot_longer(cols=starts_with("I"),
+               names_to="item.mp",
+               values_to="resp") %>%
+  separate_wider_delim(item.mp, delim=".",names=c("item","mp")) %>% 
+  left_join(., linear_tree_map_resp, by=c("resp")) %>% 
+  pivot_longer(cols=starts_with("node"),
+               names_to="node",
+               values_to="resp_node") %>% 
+  arrange(person,mp,item,node) %>% 
+  mutate(item=as.factor(item),
+         node=as.factor(node),
+         mp=as.factor(mp),
+         node=str_replace(node, "node", "c")) %>% 
+  rename(cate=node) %>% 
+  # Join design matrix
+  inner_join(., W, by=c("mp","item","cate")) %>% 
+  select(person,mp,item,cate,starts_with("eta"),resp_node,resp)
+
+# Fit the model using glmer
+t<-proc.time()
+glmer.lrsm <- glmer(resp_node ~ 
+                      `eta 1`+`eta 2`+`eta 3`+`eta 4`+`eta 5` +
+                      (1|person), 
+                    data=lrsmdat_long, family=binomial,
+                    control=glmerControl(optCtrl=list(maxfun=100000))
+)
+proc.time()-t #  3sec
+#==== compare glmer with eRm 
+summary(glmer.lrsm)$coefficients
+glmer.lrsm@theta
+erm.lrsm$etapar
+erm.lrsm$betapar
+
+glmer.lrsm.est.se <- summary(glmer.lrsm)$coefficients %>% 
+  as.data.frame %>% 
+  mutate(item=rownames(.)) %>% 
+  mutate(item=str_replace(item, "item", "")) %>% 
+  mutate(item=str_replace(item, "nodenode", "c")) %>% 
+  mutate(item=str_replace(item, "mp","")) %>% 
+  rename(glmer.est=Estimate,
+         glmer.se="Std. Error") %>% 
+  select(item, glmer.est, glmer.se) %>% 
+  # not need to invert easiness to difficulty.
+  mutate(glmer.est=glmer.est,
+         item=str_replace_all(item,"`","")) %>% 
+  filter(item!="(Intercept)")
+
+erm.lrsm.est <- erm.lrsm$etapar %>% 
+  as.data.frame() %>% 
+  mutate(item=names(erm.lrsm$etapar)) %>% 
+  rename(eRm.est=".")
+erm.lrsm.se <- erm.lrsm$se.eta %>% 
+  as.data.frame %>% 
+  mutate(item=names(erm.lrsm$etapar)) %>% 
+  rename(eRm.se=".")
+
+erm.lrsm.est.se <- full_join(erm.lrsm.est,erm.lrsm.se, by="item")
+
+compare.lrsm <- full_join(glmer.lrsm.est.se, erm.lrsm.est.se, by=c("item")) %>% 
+  arrange(item) %>% 
+  rename(eta=item) %>% 
+  mutate(eta=str_remove(eta, "eta "))
+
+stargazer(compare.lrsm, summary=FALSE, rownames=FALSE, 
+          omit.table.layout="-!")
+
+
+#===== LPCM
+#==== eRm 
+#group vector
+G <- c(rep(1,10),rep(2,10)) 
+erm.lpcm <- LPCM(lpcmdat, mpoints = 2, groupvec = G)
+# design matrix is automatically generated
+W <- erm.lpcm$W %>% 
+  as.data.frame() %>% 
+  mutate(item.cate.mp=rownames(.)) %>% 
+  separate_wider_delim(item.cate.mp, delim=" ", names=c("item.cate","mp","gr")) %>% 
+  separate_wider_delim(item.cate, delim=".", names=c("item","cate"))
+
+#==== glmer
+# mapping matrix for linear tree
+linear_tree_map <- data.frame(node1=c(0,1,1,1), node2=c(NA,0,1,1), node3=c(NA,NA,0,1)) %>% 
+  `rownames<-`(c(0,1,2,3)) %>% 
+  as.matrix()
+# add a column has original responses for linear tree map 
+linear_tree_map_resp <- 
+  rownames_to_column(as.data.frame(linear_tree_map), var="resp") %>% 
+  mutate(resp=as.double(resp))
+
+# TODO: edit for LPCM
+# dendrify
+lpcmdat_long <- lpcmdat %>%
+  rownames_to_column(., var="person") %>%
+  pivot_longer(cols=starts_with("I"),
+               names_to="item.mp",
+               values_to="resp") %>%
+  separate_wider_delim(item.mp, delim=".",names=c("item","mp")) %>% 
+  left_join(., linear_tree_map_resp, by=c("resp")) %>% 
+  pivot_longer(cols=starts_with("node"),
+               names_to="node",
+               values_to="resp_node") %>% 
+  arrange(person,mp,item,node) %>% 
+  mutate(item=as.factor(item),
+         node=as.factor(node),
+         mp=as.factor(mp),
+         node=str_replace(node, "node", "c")) %>% 
+  rename(cate=node) %>% 
+  # Join design matrix
+  inner_join(., W, by=c("mp","item","cate")) %>% 
+  select(person,mp,item,cate,starts_with("eta"),resp_node,resp)
+
+# Fit the model using glmer
+t<-proc.time()
+glmer.lpcm <- glmer(resp_node ~ 
+                      `eta 1`+`eta 2`+`eta 3`+`eta 4`+`eta 5` +
+                      (1|person), 
+                    data=lpcmdat_long, family=binomial,
+                    control=glmerControl(optCtrl=list(maxfun=100000))
+)
+proc.time()-t #  3sec
+#==== compare glmer with eRm 
+summary(glmer.lpcm)$coefficients
+glmer.lpcm@theta
+erm.lpcm$etapar
+erm.lpcm$betapar
+
+glmer.lpcm.est.se <- summary(glmer.lpcm)$coefficients %>% 
+  as.data.frame %>% 
+  mutate(item=rownames(.)) %>% 
+  mutate(item=str_replace(item, "item", "")) %>% 
+  mutate(item=str_replace(item, "nodenode", "c")) %>% 
+  mutate(item=str_replace(item, "mp","")) %>% 
+  rename(glmer.est=Estimate,
+         glmer.se="Std. Error") %>% 
+  select(item, glmer.est, glmer.se) %>% 
+  # not need to invert easiness to difficulty.
+  mutate(glmer.est=glmer.est,
+         item=str_replace_all(item,"`","")) %>% 
+  filter(item!="(Intercept)")
+
+erm.lpcm.est <- erm.lpcm$etapar %>% 
+  as.data.frame() %>% 
+  mutate(item=names(erm.lpcm$etapar)) %>% 
+  rename(eRm.est=".")
+erm.lpcm.se <- erm.lpcm$se.eta %>% 
+  as.data.frame %>% 
+  mutate(item=names(erm.lpcm$etapar)) %>% 
+  rename(eRm.se=".")
+
+erm.lpcm.est.se <- full_join(erm.lpcm.est,erm.lpcm.se, by="item")
+
+compare.lpcm <- full_join(glmer.lpcm.est.se, erm.lpcm.est.se, by=c("item")) %>% 
+  arrange(item) %>% 
+  rename(eta=item) %>% 
+  mutate(eta=str_remove(eta, "eta "))
+
+stargazer(compare.lpcm, summary=FALSE, rownames=FALSE, 
+          omit.table.layout="-!")
+
+
+
+
+
+#====================================================
 #====== below is depricated 
 # Sample Size Determination for extended Rasch model.
 # refer to https://lkumle.github.io/power_notebooks/Scenario3_notebook.html
@@ -70,9 +311,9 @@ library(apaTables)
 library(parallel)
 library(foreach)
 
-#===== lme4::
+#===== lme4
 # View it in long form format
-lme4::VerbAgg %>% glimpse()
+VerbAgg %>% glimpse()
 # mapping matrix for linear tree
 linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
   `rownames<-`(c("no","perhaps","yes")) %>% 
@@ -83,12 +324,12 @@ linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>%
 linear_tree_map_resp <- 
   rownames_to_column(as.data.frame(linear_tree_map), var="resp")
 # separate tables to dendrify
-design_matrix <- lme4::VerbAgg %>% 
+design_matrix <- VerbAgg %>% 
   distinct(item, btype, situ, mode) %>% 
   `rownames<-`(.$item) 
-persons <- lme4::VerbAgg %>% 
+persons <- VerbAgg %>% 
   dplyr::distinct(id, Gender, Anger)
-responses <- lme4::VerbAgg %>% 
+responses <- VerbAgg %>% 
   dplyr::distinct(id, item, resp) %>% 
   dplyr::left_join(., linear_tree_map_resp, by=c("resp")) %>% 
   tidyr::pivot_longer(cols=starts_with("node"),
@@ -155,7 +396,7 @@ lltm <- glmer(formula= r2 ~ btype +situ + mode + (1|id),
 length(unique(VerbAgg$id))
 
 # eRm for LLTM
-erm_lltm <- eRm::LLTM(VerbAgg2[,-c(1:2)]-1, design_matrix_num)
+erm_lltm <- LLTM(VerbAgg2[,-c(1:2)]-1, design_matrix_num)
 
 # compare glmer with eRm for LLTM
 cbind(summary_lltm$coefficients[-1,1:2], 
@@ -170,12 +411,12 @@ cbind(summary_lltm$coefficients[-1,1:2],
 # irtrees::dendrify is 
 
 t <- proc.time()
-rsm <- lme4::glmer(resp_node ~ item + node + (1|id),
+rsm <- glmer(resp_node ~ item + node + (1|id),
                    data=verbagg_dendrified, family=binomial)
 proc.time()-t # 154sec
 (summary_rsm <- summary(rsm))
 # eRm for RSM
-erm_rsm <- eRm::RSM(VerbAgg3[,-c(1:2)]-1, sum0=TRUE)
+erm_rsm <- RSM(VerbAgg3[,-c(1:2)]-1, sum0=TRUE)
 erm_rsm
 
 # compare glmer with eRm for RSM
@@ -192,7 +433,7 @@ cbind(
 
 #===== LRSM
 t <- proc.time()
-lrsm <- lme4::glmer(resp_node ~ btype + situ + mode + node + (1|id),
+lrsm <- glmer(resp_node ~ btype + situ + mode + node + (1|id),
                     data=verbagg_dendrified, family=binomial)
 proc.time()-t # 7sec
 (summary_lrsm <- summary(lrsm))
@@ -200,7 +441,7 @@ proc.time()-t # 7sec
 design_matrix_lrsm <- slice(design_matrix_num, rep(1:n(), each=2)) %>% 
   mutate(across(everything(), ~ifelse(row_number(.)%%2==1,.,.*2))) %>% 
   mutate(omega=ifelse(row_number()%%2==1,0,1))
-erm_lrsm <- eRm::LRSM(X=VerbAgg3[,-c(1:2)]-1, 
+erm_lrsm <- LRSM(X=VerbAgg3[,-c(1:2)]-1, 
                       W=design_matrix_lrsm
 )
 # compare glmer with eRm for LLTM
@@ -212,7 +453,7 @@ cbind(summary_lrsm$coefficients[-1,1:2]
 
 # #===== PCM
 # t <- proc.time()
-# pcm_ <- lme4::glmer(resp_node ~ 0 + (0+item):(0+node) + (1|id),
+# pcm_ <- glmer(resp_node ~ 0 + (0+item):(0+node) + (1|id),
 #                    data=verbagg_dendrified,
 #                    family=binomial)
 # proc.time()-t #700sec
@@ -220,7 +461,7 @@ cbind(summary_lrsm$coefficients[-1,1:2]
 # pcm <- readRDS("pcm.rds")
 # (summary_pcm <- summary(pcm))
 # # eRm for PCM
-# erm_pcm <- eRm::PCM(X=VerbAgg3[,-c(1:2)], sum0=TRUE)
+# erm_pcm <- PCM(X=VerbAgg3[,-c(1:2)], sum0=TRUE)
 # # compare glmer with eRm for LLTM
 # summary_pcm$coefficients[order(rownames(summary_pcm$coefficients)),][-c(1,nrow(summary_pcm$coefficients)),1:2] %>% 
 #   rownames ->a; a
@@ -235,7 +476,7 @@ cbind(summary_lrsm$coefficients[-1,1:2]
 #===== LPCM
 # adjacent-category logit for each item independent on number of categories.
 t <- proc.time()
-lpcm <- lme4::glmer(resp_node ~ btype + situ + mode + item:node + (1|id),
+lpcm <- glmer(resp_node ~ btype + situ + mode + item:node + (1|id),
                     data=verbagg_dendrified, family=binomial)
 lpcm
 proc.time()-t # 13sec
@@ -255,7 +496,7 @@ design_matrix_lpcm <- foreach(i=seq(num_item), .combine=rbind) %do% {
       mutate(across(everything(), ~ifelse(row_number(.)%%2==1,.,.*2))),
     .)
     
-erm_lrsm <- eRm::LRSM(X=VerbAgg3[,-c(1:2)]-1, 
+erm_lrsm <- LRSM(X=VerbAgg3[,-c(1:2)]-1, 
                       W=design_matrix_lpcm)
 erm_lrsm
     
