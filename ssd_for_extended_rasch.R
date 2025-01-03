@@ -10,10 +10,23 @@ library(lme4)
 library(mixedpower)
 library(doMPI)
 
-#===== Load example models
-source("replicate_eRm_by_glmer.R")
-
 #===== LLTM
+raschdat1_long <- raschdat1 %>% 
+  mutate(person=rownames(.)) %>% 
+  pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp") %>% 
+  mutate(person=as.integer(person))
+items <- unique(raschdat1_long$item)
+number_of_items <- length(items)
+# Fit the model using glmer
+t<-proc.time()
+glmer.rasch <- glmer(resp ~ item + (1 | person), 
+                     data = raschdat1_long, 
+                     family = binomial,
+                     control=glmerControl(optCtrl=list(maxfun=100000))
+)
+proc.time()-t #41sec
+summary(glmer.rasch)
+
 glmer.rasch
 t<-proc.time()
 cl <- startMPIcluster(count=56-1)
