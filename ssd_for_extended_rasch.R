@@ -7,6 +7,7 @@
 #===== Libraries
 library(tidyverse)
 library(lme4)
+library(eRm)
 library(mixedpower)
 library(doMPI)
 
@@ -29,7 +30,7 @@ summary(glmer.rasch)
 
 glmer.rasch
 t<-proc.time()
-cl <- startMPIcluster(count=56-1)
+cl <- startMPIcluster(count=16-1)
 registerDoMPI(cl)
 power.rasch <- mixedpower(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
