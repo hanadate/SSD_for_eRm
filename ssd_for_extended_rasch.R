@@ -36,8 +36,7 @@ power.rasch <- mixedpower(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,20,30,40,50,60),
                           critical_value=2, n_sim=10,
-                          SESOI=FALSE, databased=TRUE,
-                          maxCores=detectCores())
+                          SESOI=FALSE, databased=TRUE)
 proc.time()-t
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
 #= steps 6 x n_sim 10: 5 mins
