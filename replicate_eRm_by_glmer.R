@@ -13,7 +13,8 @@ erm.rasch <- RM(raschdat1, sum0=FALSE)
 #==== glmer
 raschdat1_long <- raschdat1 %>% 
   mutate(person=rownames(.)) %>% 
-  pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp")
+  pivot_longer(cols=starts_with("I"), names_to="item", values_to="resp") %>% 
+  mutate(person=as.integer(person))
 items <- unique(raschdat1_long$item)
 number_of_items <- length(items)
 # Fit the model using glmer
