@@ -36,7 +36,7 @@ t<-proc.time()
 power.rasch <- mixedpower(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,30,50),
-                          critical_value=2, n_sim=1000,
+                          critical_value=2, n_sim=10,
                           SESOI=FALSE, databased=TRUE,
                           maxCores=cores)
 proc.time()-t
