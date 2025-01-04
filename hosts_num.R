@@ -1,0 +1,6 @@
+hosts_num <- 
+  function(hosts="hosts"){
+    hosts_table <- read.table(hosts, header=FALSE)
+    nCores <- sum(as.integer(gsub("cpu=","",hosts_table$V2)))
+    return(nCores)
+  }
