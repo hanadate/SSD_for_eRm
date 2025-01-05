@@ -1,4 +1,4 @@
-power_simularion_mpi <- 
+power_simulation_mpi <- 
   function (model, data, simvar, fixed_effects, critical_value, 
           steps, n_sim, confidence_level, safeguard = F, rnorm = F, 
           R2 = F, R2var, R2level, nCores, chunkSize) 
