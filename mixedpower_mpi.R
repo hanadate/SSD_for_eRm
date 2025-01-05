@@ -4,7 +4,7 @@ mixedpower_mpi<-
             chunkSize=floor(n_sim/(2*foreach::getDoParWorkers()))) 
   {
     R2 <- F
-    data <- check_input(model, data, fixed_effects, simvar, steps, 
+    data <- mixedpower::check_input(model, data, fixed_effects, simvar, steps, 
                         critical_value, n_sim, SESOI, R2, R2var, R2level)
     confidence_level <- 0.68
     output <- list()
