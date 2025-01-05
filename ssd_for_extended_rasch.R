@@ -35,8 +35,8 @@ summary(glmer.rasch)
 glmer.rasch
 t<-proc.time()
 print(hosts_num(hosts="hosts"))
-n_sim<-20
-(floor(n_sim/(2*foreach::getDoParWorkers())))
+n_sim<-100
+print(floor(n_sim/(2*foreach::getDoParWorkers())))
 power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,30,50),
