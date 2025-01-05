@@ -3,7 +3,7 @@ power_simulation_mpi <-
           steps, n_sim, confidence_level, safeguard = F, rnorm = F, 
           R2 = F, R2var, R2level, nCores, chunkSize) 
 {
-  depvar <- get_depvar(model)
+  depvar <- mixedpower:::get_depvar(model)
   cl <- doMPI::startMPIcluster(count=nCores-1)
   doMPI::registerDoMPI(cl)
   print("Simulation running on:")
