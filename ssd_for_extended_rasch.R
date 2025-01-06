@@ -36,8 +36,8 @@ glmer.rasch
 t<-proc.time()
 print(paste0("hosts_num: ",hosts_num(hosts="hosts")))
 print(paste0("cores_num: ",cores_num(hosts="hosts")))
-n_sim<-20
-print(paste0("chunkSize: ",floor(n_sim/(2*foreach::getDoParWorkers()))))
+n_sim<-10
+print(paste0("chunkSize: ",floor(n_sim/(2*hosts_num(hosts="hosts")))))
 power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,30,50),
