@@ -37,6 +37,7 @@ t<-proc.time()
 print(paste0("hosts_num: ",hosts_num(hosts="hosts")))
 print(paste0("cores_num: ",cores_num(hosts="hosts")))
 n_sim<-100
+print(paste0("n_sim: ",n_sim))
 chunkSize <- floor(n_sim/(1*hosts_num(hosts="hosts")))
 print(paste0("chunkSize: ",chunkSize))
 power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
