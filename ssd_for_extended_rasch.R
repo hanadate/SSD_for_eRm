@@ -44,7 +44,7 @@ power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           critical_value=2, n_sim=n_sim,
                           SESOI=FALSE, databased=TRUE,
                           maxCores=hosts_num(hosts="hosts"),
-                          chunkSize=floor(n_sim/(2*hosts_num(hosts="hosts"))))
+                          chunkSize=floor(n_sim/(1*hosts_num(hosts="hosts"))))
 proc.time()-t
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
 #= steps=3 & n_sim=10: 3 mins, steps=3 & n_sim=100: 15 mins
