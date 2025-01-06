@@ -2,54 +2,6 @@ Authorization required, but no authorization protocol specified
 
 Authorization required, but no authorization protocol specified
 
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
@@ -65,19 +17,39 @@ Authorization required, but no authorization protocol specified
 ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tib── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
 ✔ forcats   1.0.0     ✔ stringr   1.5.1
 ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
-ble    3.2.1
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
 ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -91,156 +63,6 @@ Loading required package: Matrix
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-�Loading required package: Matrix
-� Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ─────────────────────────────────────Loading required package: Matrix
-───── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -251,1553 +73,19 @@ Loading required package: Matrix
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
 Loading required package: Matrix
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ─────────────────────────────────────── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-───── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
 ── Conflicts ─────────────────────────────────────── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
 ───── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-�Loading required package: Matrix
-� Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: Matrix
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-Loading required package: Rmpi
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: Rmpi
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-Authorization required, but no authorization protocol specified
-
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-── Conflicts ─────────────────────────────────────Loading required package: Matrix
-───── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: foreach
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: Rmpi
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: foreach
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-Loading required package: foreach
-Loading required package: foreach
-0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: Rmpi
-Loading required package: foreach
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: foreach
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-
-Attaching package: ‘Matrix’
-
-Loading required package: iterators
-Loading required package: foreach
-Loading required package: Rmpi
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-Loading required package: iterators
-Loading required package: foreach
-Loading required package: Rmpi
-Loading required package: Rmpi
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: iterators
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: Rmpi
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-
-Attaching package: ‘foreach’
-
-Loading required package: iterators
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-Loading required package: foreach
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: foreach
-Loading required package: Rmpi
-Loading required package: foreach
-Loading required package: Rmpi
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-Authorization required, but no authorization protocol specified
-
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-Authorization required, but no authorization protocol specified
-
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: foreach
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Loading required package: foreach
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: foreach
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-Loading required package: foreach
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: foreach
-
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-
-Attaching package: ‘foreach’
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-Loading required package: iterators
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Rmpi
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Authorization required, but no authorization protocol specified
-
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
-Loading required package: Matrix
 Loading required package: Matrix
 Loading required package: Matrix
 Loading required package: Matrix
@@ -1833,20 +121,6 @@ The following objects are masked from ‘package:tidyr’:
 
 Attaching package: ‘Matrix’
 
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
-The following objects are masked from ‘package:tidyr’:
-
-    expand, pack, unpack
-
-
-Attaching package: ‘Matrix’
-
 
 Attaching package: ‘Matrix’
 
@@ -1858,14 +132,59 @@ The following objects are masked from ‘package:tidyr’:
 
     expand, pack, unpack
 
+
+Attaching package: ‘Matrix’
+
+
+Attaching package: ‘Matrix’
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
+The following objects are masked from ‘package:tidyr’:
+
+    expand, pack, unpack
+
 Loading required package: foreach
+
+Attaching package: ‘foreach’
+
+The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
+Loading required package: iterators
+Loading required package: Rmpi
 Loading required package: foreach
+
+Attaching package: ‘foreach’
+
+The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
+Loading required package: iterators
 Loading required package: foreach
+Authorization required, but no authorization protocol specified
+
+Loading required package: Rmpi
 Loading required package: foreach
+
+Attaching package: ‘foreach’
+
+The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
 Loading required package: foreach
+Loading required package: iterators
+Authorization required, but no authorization protocol specified
 Loading required package: foreach
-Loading required package: foreach
-Loading required package: foreach
+
+Loading required package: Rmpi
+Authorization required, but no authorization protocol specified
+
 
 Attaching package: ‘foreach’
 
@@ -1877,50 +196,27 @@ Loading required package: iterators
 
 Attaching package: ‘foreach’
 
+The following objects are masked from ‘package:purrr’:
 
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
-
-
-Attaching package: ‘foreach’
+    accumulate, when
 
 
 Attaching package: ‘foreach’
 
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
-
 Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
-Loading required package: iterators
+The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
+Loading required package: foreach
 Loading required package: iterators
 Loading required package: Rmpi
+Loading required package: foreach
+Loading required package: Rmpi
+Authorization required, but no authorization protocol specified
 
-Attaching package: ‘foreach’
-
-The following objects are masked from ‘package:purrr’:
-
-    accumulate, when
+Loading required package: Rmpi
+Authorization required, but no authorization protocol specified
 
 
 Attaching package: ‘foreach’
@@ -1930,19 +226,43 @@ The following objects are masked from ‘package:purrr’:
     accumulate, when
 
 Loading required package: iterators
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
-Loading required package: Rmpi
+
+Attaching package: ‘foreach’
+
+The following objects are masked from ‘package:purrr’:
+
+    accumulate, when
+
 Loading required package: iterators
+Authorization required, but no authorization protocol specified
+
 Loading required package: Rmpi
 Loading required package: Rmpi
-   user  system elapsed 
- 88.228   0.015  88.329 
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
+Authorization required, but no authorization protocol specified
+
 Warning message:
-In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+   user In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
   Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+ system elapsed 
+109.207   0.029 109.288 
 Generalized linear mixed model fit by maximum likelihood (Laplace
   Approximation) [glmerMod]
  Family: binomial  ( logit )
@@ -1974,11 +294,6 @@ itemI15      -1.2228     0.3346  -3.655 0.000257 ***
 itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
 itemI17      -1.2221     0.3345  -3.653 0.000259 ***
 itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
-
-Correlation matrix not shown by default, as p = 30 > 12.
-Use print(x, correlation=TRUE)  or
-    vcov(x)        if you need it
-
 itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
 itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
 itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
@@ -1994,6 +309,471 @@ itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
 itemI3       -0.7768     0.3380  -2.298 0.021552 *  
 itemI30      -0.8309     0.3374  -2.463 0.013774 *  
 itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+    user  system elapsed 
+109.560   0.033 109.653 
+ Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ person (Intercept) 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+109.975   0.036 110.437 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ person (Intercept) 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+110.479   0.052 110.696 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ person (Intercept) 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+---
+
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+112.574   0.029 112.640 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ person (Intercept) 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+112.657   0.039 112.845 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ person (Intercept) 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+     0.3436  -6.443 1.17e-10 ***
 itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
 itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
 itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
@@ -2027,19 +807,665 @@ Fixed Effects:
      itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
     -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
 optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+113.339   0.034 113.487 
+Warning message:
+In checkConv(attr(opt, "derivs"), opt$par, ctrl = control$checkConv,  :
+  Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+   user  system elapsed 
+113.239   0.049 113.495 
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+ Groups Name        Variance Std.Dev.Formula: resp ~ item + (1 | person)
+
+   Data: raschdat1_long
+ person (Intercept)Control: glmerControl(optCtrl = list(maxfun = 1e+05))
+
+ 0.9355   0.9672  
+Number of obs: 3000, groups:  person, 100
+
+Fixed effects:
+     AIC      BIC   logLik deviance df.resid 
+  3568.8   3755.0  -1753.4   3506.8     2969 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.5681 -0.7149 -0.2907  0.7378  5.6139 
+
+Random effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10      -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+ Groups Name        Variance Std.Dev.
+ person (Intercept)itemI12     0.9355   0.9672  
+  -1.1754     0.3347  -3.512 0.000445 ***
+itemI13    Number of obs: 3000, groups:   -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+ person, 100
+
+Fixed effects:
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   1.3658     0.2709   5.041 4.63e-07 ***
+itemI10    
+  -2.6714     0.3564  -7.495 6.62e-14 ***
+itemI11      -2.2135     0.3436  -6.443 1.17e-10 ***
+itemI12      -1.1754     0.3347  -3.512 0.000445 ***
+itemI13      -3.0740     0.3736  -8.228  < 2e-16 ***
+itemI14      -3.6819     0.4135  -8.905  < 2e-16 ***
+itemI15      -1.2228     0.3346  -3.655 0.000257 ***
+itemI16      -2.1594     0.3425  -6.305 2.87e-10 ***
+itemI17      -1.2221     0.3345  -3.653 0.000259 ***
+itemI18      -1.6558     0.3356  -4.933 8.09e-07 ***
+itemI19      -2.3236     0.3461  -6.714 1.90e-11 ***
+itemI2       -1.5108     0.3348  -4.513 6.41e-06 ***
+itemI20      -0.8829     0.3368  -2.622 0.008748 ** 
+itemI21      -0.6278     0.3402  -1.845 0.065008 .  
+itemI22      -0.5775     0.3412  -1.693 0.090490 .  
+itemI23      -0.8806     0.3368  -2.615 0.008923 ** 
+itemI24      -1.5596     0.3350  -4.655 3.24e-06 ***
+itemI25      -2.3754     0.3474  -6.838 8.04e-12 ***
+itemI26      -0.3572     0.3459  -1.033 0.301702    
+itemI27      -1.6565     0.3356  -4.935 8.00e-07 ***
+itemI28      -1.8530     0.3376  -5.489 4.04e-08 ***
+itemI29      -2.3219     0.3460  -6.710 1.95e-11 ***
+itemI3       -0.7768     0.3380  -2.298 0.021552 *  
+itemI30      -0.8309     0.3374  -2.463 0.013774 *  
+itemI4       -2.2139     0.3436  -6.443 1.17e-10 ***
+itemI5       -2.8641     0.3639  -7.871 3.53e-15 ***
+itemI6       -1.4632     0.3346  -4.372 1.23e-05 ***
+itemI7       -0.8817     0.3368  -2.618 0.008835 ** 
+itemI8       -0.8299     0.3373  -2.460 0.013896 *  
+itemI9       -1.0284     0.3355  -3.066 0.002172 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+
+Correlation matrix not shown by default, as p = 30 > 12.
+Use print(x, correlation=TRUE)  or
+    vcov(x)        if you need it
+
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558  optimizer (Nelder_Mead) convergence code: 0 (OK)
+Model failed to converge with max|grad| = 0.0318944 (tol = 0.002, component 1)
+    -2.3236      -1.5108  
+    itemI20      itemI21  
+    itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+Generalized linear mixed model fit by maximum likelihood (Laplace
+  Approximation) [glmerMod]
+ Family: binomial  ( logit )
+Formula: resp ~ item + (1 | person)
+   Data: raschdat1_long
+      AIC       BIC    logLik  deviance  df.resid 
+ 3568.772  3754.969 -1753.386  3506.772      2969 
+Random effects:
+ Groups Name        Std.Dev.
+ person (Intercept) 0.9672  
+Number of obs: 3000, groups:  person, 100
+Fixed Effects:
+(Intercept)      itemI10      itemI11      itemI12      itemI13      itemI14  
+     1.3658      -2.6714      -2.2135      -1.1754      -3.0740      -3.6819  
+    itemI15      itemI16      itemI17      itemI18      itemI19       itemI2  
+    -1.2228      -2.1594      -1.2221      -1.6558      -2.3236      -1.5108  
+    itemI20      itemI21      itemI22      itemI23      itemI24      itemI25  
+    -0.8829      -0.6278      -0.5775      -0.8806      -1.5596      -2.3754  
+    itemI26      itemI27      itemI28      itemI29       itemI3      itemI30  
+    -0.3572      -1.6565      -1.8530      -2.3219      -0.7768      -0.8309  
+     itemI4       itemI5       itemI6       itemI7       itemI8       itemI9  
+    -2.2139      -2.8641      -1.4632      -0.8817      -0.8299      -1.0284  
+optimizer (Nelder_Mead) convergence code: 0 (OK) ; 0 optimizer warnings; 1 lme4 warnings 
+[1] "hosts_num: 1"
+[1] "cores_num: 8"
+[1] "chunkSize: 5"
+[1] "chunkSize: 5"
 [1] "Simulation running on:"
-socket cluster with 56 nodes on host ‘localhost’
+$comm
+[1] 0
+
+$workerCount
+[1] 7
+
+$workerid
+[1] 0
+
+$verbose
+[1] FALSE
+
+$mtag
+[1] 10
+
+$wtag
+[1] 11
+
+$defaultopts
+list()
+
+attr(,"class")
+[1] "mpicluster"   "dompicluster"
 [1] "Estimating power for step:"
 [1] 10
 [1] "Simulations for step  10  are based on  10  successful single runs"
+  [1] "store_simulations: FALSE" "store_simulations: TRUE" 
+  [3] "store_simulations: FALSE" "store_simulations: TRUE" 
+  [5] "store_simulations: TRUE"  "store_simulations: FALSE"
+  [7] "store_simulations: TRUE"  "store_simulations: FALSE"
+  [9] "store_simulations: FALSE" "store_simulations: FALSE"
+ [11] "store_simulations: FALSE" "store_simulations: FALSE"
+ [13] "store_simulations: FALSE" "store_simulations: FALSE"
+ [15] "store_simulations: FALSE" "store_simulations: FALSE"
+ [17] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [19] "store_simulations: FALSE" "store_simulations: FALSE"
+ [21] "store_simulations: FALSE" "store_simulations: FALSE"
+ [23] "store_simulations: FALSE" "store_simulations: FALSE"
+ [25] "store_simulations: FALSE" "store_simulations: FALSE"
+ [27] "store_simulations: FALSE" "store_simulations: FALSE"
+ [29] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [31] "store_simulations: FALSE" "store_simulations: FALSE"
+ [33] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [35] "store_simulations: FALSE" "store_simulations: FALSE"
+ [37] "store_simulations: FALSE" "store_simulations: FALSE"
+ [39] "store_simulations: FALSE" "store_simulations: FALSE"
+ [41] "store_simulations: FALSE" "store_simulations: FALSE"
+ [43] "store_simulations: FALSE" "store_simulations: FALSE"
+ [45] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [47] "store_simulations: FALSE" "store_simulations: FALSE"
+ [49] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [51] "store_simulations: FALSE" "store_simulations: FALSE"
+ [53] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [55] "store_simulations: FALSE" "store_simulations: FALSE"
+ [57] "store_simulations: FALSE" "store_simulations: FALSE"
+ [59] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [61] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [63] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [65] "store_simulations: FALSE" "store_simulations: FALSE"
+ [67] "store_simulations: FALSE" "store_simulations: FALSE"
+ [69] "store_simulations: FALSE" "store_simulations: FALSE"
+ [71] "store_simulations: FALSE" "store_simulations: FALSE"
+ [73] "store_simulations: FALSE" "store_simulations: FALSE"
+ [75] "store_simulations: FALSE" "store_simulations: FALSE"
+ [77] "store_simulations: FALSE" "store_simulations: FALSE"
+ [79] "store_simulations: FALSE" "store_simulations: FALSE"
+ [81] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [83] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [85] "store_simulations: FALSE" "store_simulations: FALSE"
+ [87] "store_simulations: FALSE" "store_simulations: FALSE"
+ [89] "store_simulations: FALSE" "store_simulations: FALSE"
+ [91] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [93] "store_simulations: FALSE" "store_simulations: FALSE"
+ [95] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [97] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [99] "store_simulations: FALSE" "store_simulations: FALSE"
+[101] "store_simulations: FALSE" "store_simulations: FALSE"
+[103] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[105] "store_simulations: FALSE" "store_simulations: FALSE"
+[107] "store_simulations: FALSE" "store_simulations: TRUE" 
+[109] "store_simulations: FALSE" "store_simulations: TRUE" 
+[111] "store_simulations: FALSE" "store_simulations: TRUE" 
+[113] "store_simulations: FALSE" "store_simulations: FALSE"
+[115] "store_simulations: FALSE" "store_simulations: TRUE" 
+[117] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[119] "store_simulations: FALSE" "store_simulations: TRUE" 
+[121] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[123] "store_simulations: TRUE"  "store_simulations: FALSE"
+[125] "store_simulations: FALSE" "store_simulations: TRUE" 
+[127] "store_simulations: FALSE" "store_simulations: FALSE"
+[129] "store_simulations: FALSE" "store_simulations: FALSE"
+[131] "store_simulations: FALSE" "store_simulations: FALSE"
+[133] "store_simulations: TRUE"  "store_simulations: FALSE"
+[135] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[137] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[139] "store_simulations: FALSE" "store_simulations: TRUE" 
+[141] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[143] "store_simulations: TRUE"  "store_simulations: FALSE"
+[145] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[147] "store_simulations: FALSE" "store_simulations: TRUE" 
+[149] "store_simulations: TRUE"  "store_simulations: FALSE"
+[151] "store_simulations: FALSE" "store_simulations: TRUE" 
+[153] "store_simulations: FALSE" "store_simulations: TRUE" 
+[155] "store_simulations: FALSE" "store_simulations: FALSE"
+[157] "store_simulations: FALSE" "store_simulations: FALSE"
+[159] "store_simulations: FALSE" "store_simulations: FALSE"
+[161] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[163] "store_simulations: FALSE" "store_simulations: FALSE"
+[165] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[167] "store_simulations: FALSE" "store_simulations: TRUE" 
+[169] "store_simulations: FALSE" "store_simulations: TRUE" 
+[171] "store_simulations: FALSE" "store_simulations: FALSE"
+[173] "store_simulations: FALSE" "store_simulations: FALSE"
+[175] "store_simulations: TRUE"  "store_simulations: FALSE"
+[177] "store_simulations: FALSE" "store_simulations: TRUE" 
+[179] "store_simulations: TRUE"  "store_simulations: FALSE"
+[181] "store_simulations: TRUE"  "store_simulations: FALSE"
+[183] "store_simulations: FALSE" "store_simulations: TRUE" 
+[185] "store_simulations: FALSE" "store_simulations: FALSE"
+[187] "store_simulations: FALSE" "store_simulations: FALSE"
+[189] "store_simulations: TRUE"  "store_simulations: FALSE"
+[191] "store_simulations: TRUE"  "store_simulations: FALSE"
+[193] "store_simulations: FALSE" "store_simulations: FALSE"
+[195] "store_simulations: TRUE"  "store_simulations: FALSE"
+[197] "store_simulations: FALSE" "store_simulations: FALSE"
+[199] "store_simulations: TRUE"  "store_simulations: FALSE"
+[201] "store_simulations: FALSE" "store_simulations: FALSE"
+[203] "store_simulations: FALSE" "store_simulations: FALSE"
+[205] "store_simulations: TRUE"  "store_simulations: FALSE"
+[207] "store_simulations: FALSE" "store_simulations: FALSE"
+[209] "store_simulations: FALSE" "store_simulations: FALSE"
+[211] "store_simulations: FALSE" "store_simulations: FALSE"
+[213] "store_simulations: FALSE" "store_simulations: FALSE"
+[215] "store_simulations: FALSE" "store_simulations: FALSE"
+[217] "store_simulations: FALSE" "store_simulations: FALSE"
+[219] "store_simulations: FALSE" "store_simulations: FALSE"
+[221] "store_simulations: FALSE" "store_simulations: FALSE"
+[223] "store_simulations: FALSE" "store_simulations: FALSE"
+[225] "store_simulations: FALSE" "store_simulations: FALSE"
+[227] "store_simulations: FALSE" "store_simulations: TRUE" 
+[229] "store_simulations: FALSE" "store_simulations: FALSE"
+[231] "store_simulations: FALSE" "store_simulations: FALSE"
+[233] "store_simulations: FALSE" "store_simulations: FALSE"
+[235] "store_simulations: FALSE" "store_simulations: TRUE" 
+[237] "store_simulations: TRUE"  "store_simulations: FALSE"
+[239] "store_simulations: FALSE" "store_simulations: FALSE"
+[241] "store_simulations: FALSE" "store_simulations: FALSE"
+[243] "store_simulations: FALSE" "store_simulations: FALSE"
+[245] "store_simulations: FALSE" "store_simulations: FALSE"
+[247] "store_simulations: FALSE" "store_simulations: FALSE"
+[249] "store_simulations: FALSE" "store_simulations: FALSE"
+[251] "store_simulations: FALSE" "store_simulations: FALSE"
+[253] "store_simulations: FALSE" "store_simulations: FALSE"
+[255] "store_simulations: FALSE" "store_simulations: FALSE"
+[257] "store_simulations: FALSE" "store_simulations: FALSE"
+[259] "store_simulations: FALSE" "store_simulations: FALSE"
+[261] "store_simulations: FALSE" "store_simulations: TRUE" 
+[263] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[265] "store_simulations: TRUE"  "store_simulations: FALSE"
+[267] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[269] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[271] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[273] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[275] "store_simulations: TRUE"  "store_simulations: FALSE"
+[277] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[279] "store_simulations: FALSE" "store_simulations: TRUE" 
+[281] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[283] "store_simulations: FALSE" "store_simulations: FALSE"
+[285] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[287] "store_simulations: TRUE"  "store_simulations: FALSE"
+[289] "store_simulations: TRUE"  "store_simulations: FALSE"
 [1] "Estimating power for step:"
 [1] 30
 [1] "Simulations for step  30  are based on  10  successful single runs"
+  [1] "store_simulations: TRUE"  "store_simulations: TRUE" 
+  [3] "store_simulations: FALSE" "store_simulations: TRUE" 
+  [5] "store_simulations: TRUE"  "store_simulations: FALSE"
+  [7] "store_simulations: TRUE"  "store_simulations: FALSE"
+  [9] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [11] "store_simulations: FALSE" "store_simulations: FALSE"
+ [13] "store_simulations: FALSE" "store_simulations: FALSE"
+ [15] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [17] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [19] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [21] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [23] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [25] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [27] "store_simulations: FALSE" "store_simulations: FALSE"
+ [29] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [31] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [33] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [35] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [37] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [39] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [41] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [43] "store_simulations: FALSE" "store_simulations: FALSE"
+ [45] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [47] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [49] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [51] "store_simulations: FALSE" "store_simulations: FALSE"
+ [53] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [55] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [57] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [59] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [61] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [63] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [65] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [67] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [69] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [71] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [73] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [75] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [77] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [79] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [81] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [83] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [85] "store_simulations: FALSE" "store_simulations: FALSE"
+ [87] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [89] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [91] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [93] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [95] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [97] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [99] "store_simulations: TRUE"  "store_simulations: FALSE"
+[101] "store_simulations: FALSE" "store_simulations: TRUE" 
+[103] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[105] "store_simulations: FALSE" "store_simulations: FALSE"
+[107] "store_simulations: FALSE" "store_simulations: TRUE" 
+[109] "store_simulations: FALSE" "store_simulations: FALSE"
+[111] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[113] "store_simulations: FALSE" "store_simulations: TRUE" 
+[115] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[117] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[119] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[121] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[123] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[125] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[127] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[129] "store_simulations: FALSE" "store_simulations: FALSE"
+[131] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[133] "store_simulations: TRUE"  "store_simulations: FALSE"
+[135] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[137] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[139] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[141] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[143] "store_simulations: FALSE" "store_simulations: FALSE"
+[145] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[147] "store_simulations: TRUE"  "store_simulations: FALSE"
+[149] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[151] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[153] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[155] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[157] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[159] "store_simulations: FALSE" "store_simulations: FALSE"
+[161] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[163] "store_simulations: FALSE" "store_simulations: TRUE" 
+[165] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[167] "store_simulations: FALSE" "store_simulations: FALSE"
+[169] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[171] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[173] "store_simulations: FALSE" "store_simulations: FALSE"
+[175] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[177] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[179] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[181] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[183] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[185] "store_simulations: TRUE"  "store_simulations: FALSE"
+[187] "store_simulations: FALSE" "store_simulations: FALSE"
+[189] "store_simulations: FALSE" "store_simulations: TRUE" 
+[191] "store_simulations: TRUE"  "store_simulations: FALSE"
+[193] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[195] "store_simulations: TRUE"  "store_simulations: FALSE"
+[197] "store_simulations: FALSE" "store_simulations: TRUE" 
+[199] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[201] "store_simulations: FALSE" "store_simulations: FALSE"
+[203] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[205] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[207] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[209] "store_simulations: FALSE" "store_simulations: TRUE" 
+[211] "store_simulations: FALSE" "store_simulations: TRUE" 
+[213] "store_simulations: TRUE"  "store_simulations: FALSE"
+[215] "store_simulations: FALSE" "store_simulations: TRUE" 
+[217] "store_simulations: FALSE" "store_simulations: FALSE"
+[219] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[221] "store_simulations: FALSE" "store_simulations: TRUE" 
+[223] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[225] "store_simulations: FALSE" "store_simulations: TRUE" 
+[227] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[229] "store_simulations: TRUE"  "store_simulations: FALSE"
+[231] "store_simulations: FALSE" "store_simulations: FALSE"
+[233] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[235] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[237] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[239] "store_simulations: TRUE"  "store_simulations: FALSE"
+[241] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[243] "store_simulations: TRUE"  "store_simulations: FALSE"
+[245] "store_simulations: FALSE" "store_simulations: FALSE"
+[247] "store_simulations: FALSE" "store_simulations: TRUE" 
+[249] "store_simulations: TRUE"  "store_simulations: FALSE"
+[251] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[253] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[255] "store_simulations: FALSE" "store_simulations: TRUE" 
+[257] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[259] "store_simulations: FALSE" "store_simulations: FALSE"
+[261] "store_simulations: FALSE" "store_simulations: TRUE" 
+[263] "store_simulations: TRUE"  "store_simulations: FALSE"
+[265] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[267] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[269] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[271] "store_simulations: TRUE"  "store_simulations: FALSE"
+[273] "store_simulations: FALSE" "store_simulations: FALSE"
+[275] "store_simulations: FALSE" "store_simulations: FALSE"
+[277] "store_simulations: FALSE" "store_simulations: TRUE" 
+[279] "store_simulations: FALSE" "store_simulations: FALSE"
+[281] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[283] "store_simulations: FALSE" "store_simulations: FALSE"
+[285] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[287] "store_simulations: TRUE"  "store_simulations: FALSE"
+[289] "store_simulations: TRUE"  "store_simulations: FALSE"
 [1] "Estimating power for step:"
 [1] 50
 [1] "Simulations for step  50  are based on  10  successful single runs"
+  [1] "store_simulations: TRUE"  "store_simulations: TRUE" 
+  [3] "store_simulations: TRUE"  "store_simulations: TRUE" 
+  [5] "store_simulations: TRUE"  "store_simulations: TRUE" 
+  [7] "store_simulations: TRUE"  "store_simulations: TRUE" 
+  [9] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [11] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [13] "store_simulations: FALSE" "store_simulations: FALSE"
+ [15] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [17] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [19] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [21] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [23] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [25] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [27] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [29] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [31] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [33] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [35] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [37] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [39] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [41] "store_simulations: FALSE" "store_simulations: FALSE"
+ [43] "store_simulations: FALSE" "store_simulations: FALSE"
+ [45] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [47] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [49] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [51] "store_simulations: FALSE" "store_simulations: FALSE"
+ [53] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [55] "store_simulations: FALSE" "store_simulations: FALSE"
+ [57] "store_simulations: FALSE" "store_simulations: FALSE"
+ [59] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [61] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [63] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [65] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [67] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [69] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [71] "store_simulations: FALSE" "store_simulations: TRUE" 
+ [73] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [75] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [77] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [79] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [81] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [83] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [85] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [87] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [89] "store_simulations: TRUE"  "store_simulations: FALSE"
+ [91] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [93] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [95] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [97] "store_simulations: TRUE"  "store_simulations: TRUE" 
+ [99] "store_simulations: FALSE" "store_simulations: FALSE"
+[101] "store_simulations: FALSE" "store_simulations: FALSE"
+[103] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[105] "store_simulations: FALSE" "store_simulations: TRUE" 
+[107] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[109] "store_simulations: FALSE" "store_simulations: FALSE"
+[111] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[113] "store_simulations: TRUE"  "store_simulations: FALSE"
+[115] "store_simulations: FALSE" "store_simulations: FALSE"
+[117] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[119] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[121] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[123] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[125] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[127] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[129] "store_simulations: TRUE"  "store_simulations: FALSE"
+[131] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[133] "store_simulations: TRUE"  "store_simulations: FALSE"
+[135] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[137] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[139] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[141] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[143] "store_simulations: FALSE" "store_simulations: TRUE" 
+[145] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[147] "store_simulations: TRUE"  "store_simulations: FALSE"
+[149] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[151] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[153] "store_simulations: FALSE" "store_simulations: TRUE" 
+[155] "store_simulations: TRUE"  "store_simulations: FALSE"
+[157] "store_simulations: FALSE" "store_simulations: FALSE"
+[159] "store_simulations: FALSE" "store_simulations: FALSE"
+[161] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[163] "store_simulations: FALSE" "store_simulations: FALSE"
+[165] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[167] "store_simulations: FALSE" "store_simulations: FALSE"
+[169] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[171] "store_simulations: FALSE" "store_simulations: FALSE"
+[173] "store_simulations: FALSE" "store_simulations: FALSE"
+[175] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[177] "store_simulations: FALSE" "store_simulations: TRUE" 
+[179] "store_simulations: TRUE"  "store_simulations: FALSE"
+[181] "store_simulations: TRUE"  "store_simulations: FALSE"
+[183] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[185] "store_simulations: TRUE"  "store_simulations: FALSE"
+[187] "store_simulations: FALSE" "store_simulations: FALSE"
+[189] "store_simulations: FALSE" "store_simulations: FALSE"
+[191] "store_simulations: TRUE"  "store_simulations: FALSE"
+[193] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[195] "store_simulations: TRUE"  "store_simulations: FALSE"
+[197] "store_simulations: FALSE" "store_simulations: TRUE" 
+[199] "store_simulations: TRUE"  "store_simulations: FALSE"
+[201] "store_simulations: FALSE" "store_simulations: FALSE"
+[203] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[205] "store_simulations: TRUE"  "store_simulations: FALSE"
+[207] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[209] "store_simulations: FALSE" "store_simulations: TRUE" 
+[211] "store_simulations: FALSE" "store_simulations: TRUE" 
+[213] "store_simulations: TRUE"  "store_simulations: FALSE"
+[215] "store_simulations: FALSE" "store_simulations: FALSE"
+[217] "store_simulations: FALSE" "store_simulations: FALSE"
+[219] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[221] "store_simulations: FALSE" "store_simulations: TRUE" 
+[223] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[225] "store_simulations: FALSE" "store_simulations: FALSE"
+[227] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[229] "store_simulations: FALSE" "store_simulations: FALSE"
+[231] "store_simulations: FALSE" "store_simulations: FALSE"
+[233] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[235] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[237] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[239] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[241] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[243] "store_simulations: TRUE"  "store_simulations: FALSE"
+[245] "store_simulations: FALSE" "store_simulations: FALSE"
+[247] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[249] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[251] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[253] "store_simulations: TRUE"  "store_simulations: FALSE"
+[255] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[257] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[259] "store_simulations: FALSE" "store_simulations: FALSE"
+[261] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[263] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[265] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[267] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[269] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[271] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[273] "store_simulations: TRUE"  "store_simulations: FALSE"
+[275] "store_simulations: FALSE" "store_simulations: TRUE" 
+[277] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[279] "store_simulations: FALSE" "store_simulations: TRUE" 
+[281] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[283] "store_simulations: FALSE" "store_simulations: TRUE" 
+[285] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[287] "store_simulations: TRUE"  "store_simulations: TRUE" 
+[289] "store_simulations: TRUE"  "store_simulations: FALSE"
    user  system elapsed 
-  8.859   0.787 484.525 
+619.666   0.148 620.791 
+[1] "Finished fitting"
+[1] "Saved"
 --------------------------------------------------------------------------
 mpirun has exited due to process rank 0 with PID 0 on
 node shuhei-FMVA62002 exiting improperly. There are three reasons this could occur:
