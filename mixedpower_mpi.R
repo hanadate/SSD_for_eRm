@@ -15,7 +15,7 @@ mixedpower_mpi<-
       databased_power_values <- power_simulation_mpi(model, data, 
                                                  simvar, fixed_effects, critical_value, steps, n_sim, 
                                                  confidence_level, safeguard = F, rnorm = F, R2 = F, 
-                                                 R2var = 0, R2level = 0, nCores)
+                                                 R2var = 0, R2level = 0, nCores=cores_num(hosts="hosts"))
       databased_power_values["mode"] <- "databased"
       databased_power_values["effect"] <- row.names(databased_power_values)
       output[[i]] <- databased_power_values
@@ -26,7 +26,7 @@ mixedpower_mpi<-
       SESOI_power_values <- power_simulation_mpi(model, data, simvar, 
                                              fixed_effects, critical_value, steps, n_sim, confidence_level, 
                                              safeguard = F, rnorm = F, R2 = F, R2var = 0, R2level = 0, 
-                                             nCores)
+                                             nCores=cores_num(hosts="hosts"))
       SESOI_power_values["mode"] <- "SESOI"
       SESOI_power_values["effect"] <- row.names(SESOI_power_values)
       output[[i]] <- SESOI_power_values
