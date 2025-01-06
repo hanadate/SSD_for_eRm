@@ -1,7 +1,7 @@
 mixedpower_mpi<- 
   function (model, data, fixed_effects, simvar, steps, critical_value, 
-            n_sim = 1000, SESOI = F, databased = T, maxCores = hosts_num(hosts="hosts"),
-            chunkSize=floor(n_sim/(2*foreach::getDoParWorkers())))
+            n_sim = 1000, SESOI = F, databased = T, maxCores = cores_num(hosts="hosts"),
+            chunkSize=floor(n_sim/(2*hosts_num(hosts="hosts"))))
   {
     R2 <- F
     data <- mixedpower:::check_input(model, data, fixed_effects, simvar, steps, 

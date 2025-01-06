@@ -1,9 +1,9 @@
 power_simulation_mpi <- 
   function (model, data, simvar, fixed_effects, critical_value, 
           steps, n_sim, confidence_level, safeguard = F, rnorm = F, 
-          R2 = F, R2var, R2level, nCores=hosts_num(hosts="hosts"), 
-          chunkSize=floor(n_sim/(2*foreach::getDoParWorkers())))
-{
+          R2 = F, R2var, R2level, nCores=cores_num(hosts="hosts"), 
+          chunkSize=floor(n_sim/(2*hosts_num(hosts="hosts"))))
+  {
   depvar <- mixedpower:::get_depvar(model)
   cl <- doMPI::startMPIcluster(count=nCores-1)
   doMPI::registerDoMPI(cl)
