@@ -50,4 +50,6 @@ proc.time()-t
 #= steps=3 & n_sim=10: 3 mins, steps=3 & n_sim=100: 15 mins
 #=== 56 thereads:
 #= 
+print("Finished fitting")
 saveRDS(power.rasch, "power_rasch.rds")
+print("Saved")
