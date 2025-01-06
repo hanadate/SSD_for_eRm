@@ -36,9 +36,9 @@ glmer.rasch
 t<-proc.time()
 print(paste0("hosts_num: ",hosts_num(hosts="hosts")))
 print(paste0("cores_num: ",cores_num(hosts="hosts")))
-n_sim<-100
+n_sim<-1000
 print(paste0("n_sim: ",n_sim))
-chunkSize <- floor(n_sim/(1*hosts_num(hosts="hosts")))
+chunkSize <- floor(n_sim/(2*hosts_num(hosts="hosts")))
 print(paste0("chunkSize: ",chunkSize))
 power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
@@ -49,9 +49,11 @@ power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           chunkSize=chunkSize)
 proc.time()-t
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
-#= steps=3 & n_sim=10: 3 mins, steps=3 & n_sim=100: 15 mins
-#=== 56 thereads:
-#= 
+#= n_sim=10: 3 mins, n_sim=100: 15 mins, n_sim=1000: 150 mins
+#=== 56 threads (8 workers)
+#= n_sim=100 & chunkSize=*1: 16 min 
+#= n_sim=100 & chunkSize=*2: 16 min 
+#= n_sim=1000 & chunkSize=*2: 155 min
 print("Finished fitting")
 saveRDS(power.rasch, "power_rasch.rds")
 print("Saved")
