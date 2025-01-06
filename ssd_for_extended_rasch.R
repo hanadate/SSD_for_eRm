@@ -34,9 +34,10 @@ summary(glmer.rasch)
 
 glmer.rasch
 t<-proc.time()
-print(hosts_num(hosts="hosts"))
+print(paste0("hosts_num: ",hosts_num(hosts="hosts")))
+print(paste0("getDoParWoekers: ",foreach::getDoParWoekers()))
 n_sim<-100
-print(floor(n_sim/(2*foreach::getDoParWorkers())))
+print(paste0("chunkSize: ",floor(n_sim/(2*foreach::getDoParWorkers()))))
 power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,30,50),
@@ -46,7 +47,7 @@ power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           chunkSize=floor(n_sim/(2*foreach::getDoParWorkers())))
 proc.time()-t
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
-#= steps=6 & n_sim=10: 3 mins
+#= steps=3 & n_sim=10: 3 mins, steps=3 & n_sim=100: 15 mins
 #=== 56 thereads:
 #= 
 saveRDS(power.rasch, "power_rasch.rds")

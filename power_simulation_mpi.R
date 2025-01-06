@@ -1,12 +1,13 @@
 power_simulation_mpi <- 
   function (model, data, simvar, fixed_effects, critical_value, 
           steps, n_sim, confidence_level, safeguard = F, rnorm = F, 
-          R2 = F, R2var, R2level, nCores, 
+          R2 = F, R2var, R2level, nCores=hosts_num(hosts="hosts"), 
           chunkSize=floor(n_sim/(2*foreach::getDoParWorkers())))
 {
   depvar <- mixedpower:::get_depvar(model)
   cl <- doMPI::startMPIcluster(count=nCores-1)
   doMPI::registerDoMPI(cl)
+  # cl <- parallel::makeCluster(nCores-1, type="MPI")
   print("Simulation running on:")
   print(cl)
   if (safeguard == T) {
