@@ -9,12 +9,8 @@ library(tidyverse)
 library(lme4)
 library(eRm)
 library(mixedpower)
-library(doMPI)
-#===== load functions
-source("hosts_num.R")
-source("power_simulation_mpi.R")
-source("mixedpower_mpi.R")
-
+library(doParallel)
+library(mirt)
 #===== LLTM
 raschdat1_long <- raschdat1 %>% 
   mutate(person=rownames(.)) %>% 
@@ -41,7 +37,7 @@ power.rasch <- mixedpower(model=glmer.rasch, data=raschdat1_long,
                           SESOI=FALSE, databased=TRUE)
 
 proc.time()-t
-# nsim 10: 197sec
+# nsim 10: 197sec(thinkpad), 62sec(a311), sec(ishioka)
 
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
 #= n_sim=10: 3 mins, n_sim=100: 15 mins, n_sim=1000: 150 mins
@@ -49,6 +45,11 @@ proc.time()-t
 #= n_sim=100 & chunkSize=*1: 16 min 
 #= n_sim=100 & chunkSize=*2: 16 min 
 #= n_sim=1000 & chunkSize=*2: 155 min
-print("Finished fitting")
-saveRDS(power.rasch, "power_rasch.rds")
-print("Saved")
+
+model<-c("RM","RSM")
+a<-c(.5,1.0,1.5)
+d<-c(-1.0,0,1.0)
+N<-c(10,30,50)
+
+simdata(a=a,d=d,N=N[1],itemtype="dich")
+
