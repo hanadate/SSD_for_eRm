@@ -33,16 +33,24 @@ proc.time()-t #41sec
 summary(glmer.rasch)
 
 # power analysis
+glmer.rasch
+print(paste0("hosts_num: ",hosts_num(hosts="hosts")))
+print(paste0("cores_num: ",cores_num(hosts="hosts")))
+n_sim<-10 #1000
+print(paste0("n_sim: ",n_sim))
+chunkSize <- floor(n_sim/(2*hosts_num(hosts="hosts")))
+print(paste0("chunkSize: ",chunkSize))
+
 t<-proc.time()
-power.rasch <- mixedpower(model=glmer.rasch, data=raschdat1_long,
+power.rasch <- mixedpower_mpi(model=glmer.rasch, data=raschdat1_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=c(10,30,50),
-                          critical_value=2, n_sim=10,
-                          SESOI=FALSE, databased=TRUE)
+                          critical_value=2, n_sim=n_sim,
+                          SESOI=FALSE, databased=TRUE,
+                          maxCores=hosts_num(hosts="hosts"),
+                          chunkSize=chunkSize)
 
 proc.time()-t
-# nsim 10: 197sec
-
 #=== laptop(AMD Ryzen 7 7730U with Radeon Graphics 2.00 GH 16 threads): 
 #= n_sim=10: 3 mins, n_sim=100: 15 mins, n_sim=1000: 150 mins
 #=== 56 threads (8 workers)
