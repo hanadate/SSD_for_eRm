@@ -56,11 +56,15 @@ N<-seq(50,200,50)
 set.seed(1)
 x1 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
   as.data.frame() %>% 
-  `colnames<-`(ad$a_d)
+  `colnames<-`(ad$a_d) %>% 
+  mutate(zero=0) %>% 
+  select(zero, everything())
 set.seed(2)
 x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
-  as.data.frame() %>% 
-  `colnames<-`(ad$a_d)
+  as.data.frame() %>%
+  `colnames<-`(ad$a_d) %>% 
+  mutate(zero=0)%>% 
+  select(zero, everything())
 x3 <- x1+x2
 
 raschdat_long <- x1 %>% 
@@ -71,10 +75,8 @@ raschdat_long <- x1 %>%
 t <- proc.time()
 glmer.rasch <- glmer(resp ~ -1 + item + (1 | person), 
                      data = raschdat_long, 
-                     family = binomial,
-                     control=glmerControl(optCtrl=list(maxfun=100000))
-)
-proc.time()-t
+                     family = binomial)
+proc.time()-t #17sec
 saveRDS(glmer.rasch, "glmer_rasch.rds")
 glmer.rasch <- readRDS("glmer_rasch.rds")
 t<-proc.time()
@@ -88,3 +90,9 @@ saveRDS(power.rasch, "power_rasch.rds")
 power.rasch <- readRDS("power_rasch.rds")
 power.rasch
 multiplotPower(power.rasch)
+
+power.rasch.ad <- power.rasch %>% 
+  mutate(effect=str_remove(effect, "item")) %>% 
+  separate_wider_delim(effect,delim="_",names=c("a","d"))
+
+plot(power.rasch.ad$`50`,power.rasch.ad$a)
