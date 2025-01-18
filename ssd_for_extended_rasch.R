@@ -57,14 +57,14 @@ set.seed(1)
 x1 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
   as.data.frame() %>% 
   `colnames<-`(ad$a_d) %>% 
-  mutate(zero=0) %>% 
-  select(zero, everything())
+  mutate(ref_zero=0) %>% 
+  select(ref_zero, everything())
 set.seed(2)
 x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
   as.data.frame() %>%
   `colnames<-`(ad$a_d) %>% 
-  mutate(zero=0)%>% 
-  select(zero, everything())
+  mutate(ref_zero=0)%>% 
+  select(ref_zero, everything())
 x3 <- x1+x2
 
 raschdat_long <- x1 %>% 
