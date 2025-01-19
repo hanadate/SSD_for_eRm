@@ -57,14 +57,14 @@ set.seed(1)
 x1 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
   as.data.frame() %>% 
   `colnames<-`(ad$a_d) %>% 
-  mutate(ref_zero=0) %>% 
-  select(ref_zero, everything())
+  mutate(`00_ref`=0) %>% 
+  select(`00_ref`, everything())
 set.seed(2)
 x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
   as.data.frame() %>%
   `colnames<-`(ad$a_d) %>% 
-  mutate(ref_zero=0)%>% 
-  select(ref_zero, everything())
+  mutate(`00_ref`=0)%>% 
+  select(`00_ref`, everything())
 x3 <- x1+x2
 
 raschdat_long <- x1 %>% 
@@ -91,8 +91,7 @@ power.rasch <- readRDS("power_rasch.rds")
 power.rasch
 multiplotPower(power.rasch)
 
-power.rasch.ad <- power.rasch %>% 
+(power.rasch.ad <- power.rasch %>% 
   mutate(effect=str_remove(effect, "item")) %>% 
-  separate_wider_delim(effect,delim="_",names=c("a","d"))
+  separate_wider_delim(effect,delim="_",names=c("a","d")))
 
-plot(power.rasch.ad$`50`,power.rasch.ad$a)
