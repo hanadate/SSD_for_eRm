@@ -14,7 +14,6 @@ library(mirt)
 library(stargazer)
 
 #===== RM, RSM
-model<-c("RM","RSM")
 a<-seq(0,1,.5) # Discrimination parameters
 d<-seq(-1,1,.5) # Difficulty parameters
 ad<-expand.grid(a,d) %>% 
@@ -82,12 +81,25 @@ stargazer(pwr.N200.rasch)
 
 #==== RSM
 # create data
-set.seed(2)
-x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
-  as.data.frame() %>%
+# Define item parameters
+a<-seq(0,1,.5) # Discrimination parameters
+d<-seq(-1,1,.5) # Difficulty parameters
+ad<-expand.grid(a,d) %>% 
+  `colnames<-`(c("a","d")) %>% 
+  mutate(a_d=paste0(a,"_",d),
+         d2=d-1)
+N<-seq(50,200,50)
+# Specify item type as 'graded' for polytomous data
+itemtype <- rep('graded', nrow(a))
+# Generate data
+set.seed(1)
+x2 <- simdata(a=ad$a, d=matrix(c(ad$d, ad$d2), nrow(ad), 2), N=max(N), 
+              itemtype=rep("graded", nrow(ad))) %>% 
+  as.data.frame() %>% 
   `colnames<-`(ad$a_d) %>% 
-  mutate(`!!`=0)%>% 
+  mutate(`!!`=0) %>% 
   select(`!!`, everything())
+
 # mapping matrix for linear tree
 linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
   `rownames<-`(c(0,1,2)) %>% 
@@ -96,7 +108,8 @@ linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>%
 linear_tree_map_resp <- 
   rownames_to_column(as.data.frame(linear_tree_map), var="resp") %>% 
   mutate(resp=as.double(resp))
-rsmdat_long <- (x1+x2) %>% 
+rsmdat_long <- x2 %>% 
+  as.data.frame() %>% 
   # long form
   mutate(person=rownames(.)) %>%
   pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
@@ -105,12 +118,15 @@ rsmdat_long <- (x1+x2) %>%
   left_join(., linear_tree_map_resp, by=c("resp")) %>% 
   pivot_longer(cols=starts_with("node"),
                names_to="node",
-               values_to="resp_node")
+               values_to="resp_node") %>% 
+  mutate(person=as.integer(person),
+         item=factor(item))
+rsmdat_long$item <- factor(rsmdat_long$item, levels=colnames(x1))
 
 # lme4 for RSM
 t <- proc.time()
-glmer.rsm <- glmer(resp_node ~ item + node + (1 | person), 
-                   family=binomial, data=rsmdat_long)
+(glmer.rsm <- glmer(resp_node ~ -1 + item + node + (1 | person), 
+                   family=binomial, data=rsmdat_long))
 proc.time()-t # 14sec
 saveRDS(glmer.rsm, "glmer_rsm.rds")
 glmer.rsm <- readRDS("glmer_rsm.rds")
@@ -125,7 +141,7 @@ power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
 proc.time()-t 
 saveRDS(power.rsm, "power_rsm.rds")
 power.rsm <- readRDS("power_rsm.rds")
-# Core(TM) i9-12900   2.40 GHz: 
+# Core(TM) i9-12900   2.40 GHz: 48min
 
 #===== LLTM, LRSM
 
