@@ -14,7 +14,6 @@ library(mirt)
 library(stargazer)
 
 #===== RM, RSM
-#====
 model<-c("RM","RSM")
 a<-seq(0,1,.5) # Discrimination parameters
 d<-seq(-1,1,.5) # Difficulty parameters
@@ -23,6 +22,7 @@ ad<-expand.grid(a,d) %>%
   mutate(a_d=paste0(a,"_",d))
 N<-seq(50,200,50)
 
+#==== RM
 # create data
 set.seed(1)
 x1 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
@@ -30,16 +30,8 @@ x1 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>%
   `colnames<-`(ad$a_d) %>% 
   mutate(`!!`=0) %>% 
   select(`!!`, everything())
-set.seed(2)
-x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
-  as.data.frame() %>%
-  `colnames<-`(ad$a_d) %>% 
-  mutate(`!!`=0)%>% 
-  select(`!!`, everything())
-x3 <- x1+x2 #%>% 
-  # dendrify
-  
 
+# Fit
 raschdat_long <- x1 %>% 
   mutate(person=rownames(.)) %>%
   pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
@@ -54,6 +46,7 @@ proc.time()-t #15sec
 saveRDS(glmer.rasch, "glmer_rasch.rds")
 glmer.rasch <- readRDS("glmer_rasch.rds")
 
+# Power
 t<-proc.time()
 power.rasch <- mixedpower(model=glmer.rasch, data=raschdat_long,
                           fixed_effects=c("item"),
@@ -86,5 +79,50 @@ stargazer(pwr.N50.rasch)
     as.matrix()
 )
 stargazer(pwr.N200.rasch)
-#=====
+
+#==== RSM
+# create data
+set.seed(2)
+x2 <- simdata(a=ad$a,d=ad$d,N=max(N),itemtype="dich") %>% 
+  as.data.frame() %>%
+  `colnames<-`(ad$a_d) %>% 
+  mutate(`!!`=0)%>% 
+  select(`!!`, everything())
+# mapping matrix for linear tree
+linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
+  `rownames<-`(c(0,1,2)) %>% 
+  as.matrix()
+# add a column has original responses for linear tree map 
+linear_tree_map_resp <- 
+  rownames_to_column(as.data.frame(linear_tree_map), var="resp") %>% 
+  mutate(resp=as.double(resp))
+rsmdat_long <- (x1+x2) %>% 
+  # long form
+  mutate(person=rownames(.)) %>%
+  pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
+  mutate(person=as.integer(person),
+         item=factor(item)) %>%  
+  left_join(., linear_tree_map_resp, by=c("resp")) %>% 
+  pivot_longer(cols=starts_with("node"),
+               names_to="node",
+               values_to="resp_node")
+
+# lme4 for RSM
+t <- proc.time()
+glmer.rsm <- glmer(resp_node ~ item + node + (1 | person), 
+                   family=binomial, data=rsmdat_long)
+proc.time()-t # 14sec
+# Power
+t<-proc.time()
+power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
+                          fixed_effects=c("item"),
+                          simvar="person", steps=N,
+                          critical_value=2, n_sim=1000,
+                          SESOI=FALSE, databased=TRUE)
+proc.time()-t 
+
 #===== LLTM, LRSM
+
+
+
+
