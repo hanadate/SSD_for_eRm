@@ -456,7 +456,6 @@ ggsave("reprasch.png",width=7,height=7)
 
 
 #=== LLTM
-# TODO
 VerbAgg_W_lltm <- VerbAgg %>% 
   distinct(item, btype, situ, mode) %>% 
   dummy_columns(., select_columns=c("btype","situ","mode")) %>% 
