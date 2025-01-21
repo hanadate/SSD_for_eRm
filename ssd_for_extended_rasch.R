@@ -112,6 +112,9 @@ t <- proc.time()
 glmer.rsm <- glmer(resp_node ~ item + node + (1 | person), 
                    family=binomial, data=rsmdat_long)
 proc.time()-t # 14sec
+saveRDS(glmer.rsm, "glmer_rsm.rds")
+glmer.rsm <- readRDS("glmer_rsm.rds")
+
 # Power
 t<-proc.time()
 power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
@@ -120,6 +123,9 @@ power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
                           critical_value=2, n_sim=1000,
                           SESOI=FALSE, databased=TRUE)
 proc.time()-t 
+saveRDS(power.rsm, "power_rsm.rds")
+power.rsm <- readRDS("power_rsm.rds")
+# Core(TM) i9-12900   2.40 GHz: 
 
 #===== LLTM, LRSM
 
