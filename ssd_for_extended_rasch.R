@@ -90,7 +90,7 @@ ad<-expand.grid(a,d) %>%
          d2=d-1)
 N<-seq(50,200,50)
 # Specify item type as 'graded' for polytomous data
-itemtype <- rep('graded', nrow(a))
+itemtype <- rep('graded', length(a))
 # Generate data
 set.seed(1)
 x2 <- simdata(a=ad$a, d=matrix(c(ad$d, ad$d2), nrow(ad), 2), N=max(N), 
@@ -121,7 +121,7 @@ rsmdat_long <- x2 %>%
                values_to="resp_node") %>% 
   mutate(person=as.integer(person),
          item=factor(item))
-rsmdat_long$item <- factor(rsmdat_long$item, levels=colnames(x1))
+rsmdat_long$item <- factor(rsmdat_long$item, levels=colnames(x2))
 
 # lme4 for RSM
 t <- proc.time()
