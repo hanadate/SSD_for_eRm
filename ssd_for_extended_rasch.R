@@ -64,20 +64,20 @@ multiplotPower(power.rasch)
   separate_wider_delim(effect,delim="_",names=c("a","d")))
 
 # sample size 50
-(pwr.N50.rasch <- power.rasch.ad %>% 
+(power.N50.rasch <- power.rasch.ad %>% 
   select(`50`,a,d) %>% 
   filter(a>=0) %>% 
   pivot_wider(names_from=a, values_from=`50`) %>% 
   as.matrix()
 )
-stargazer(pwr.N50.rasch)
-(pwr.N200.rasch <- power.rasch.ad %>% 
+stargazer(power.N50.rasch)
+(power.N200.rasch <- power.rasch.ad %>% 
     select(`200`,a,d) %>% 
     filter(a>=0) %>% 
     pivot_wider(names_from=a, values_from=`200`) %>% 
     as.matrix()
 )
-stargazer(pwr.N200.rasch)
+stargazer(power.N200.rasch)
 
 #==== RSM
 # create data
@@ -149,20 +149,20 @@ power.rsm <- readRDS("power_rsm.rds")
   separate_wider_delim(effect,delim="_",names=c("a","d")))
 
 # sample size 50
-(pwr.N50.rsm <- power.rsm.ad %>% 
+(power.N50.rsm <- power.rsm.ad %>% 
     select(`50`,a,d) %>% 
     filter(a>=0) %>% 
     pivot_wider(names_from=a, values_from=`50`) %>% 
     as.matrix()
 )
-stargazer(pwr.N50.rsm)
-(pwr.N200.rsm <- power.rsm.ad %>% 
+stargazer(power.N50.rsm)
+(power.N200.rsm <- power.rsm.ad %>% 
     select(`200`,a,d) %>% 
     filter(a>=0) %>% 
     pivot_wider(names_from=a, values_from=`200`) %>% 
     as.matrix()
 )
-stargazer(pwr.N200.rsm)
+stargazer(power.N200.rsm)
 
 #===== LLTM, LRSM
 
