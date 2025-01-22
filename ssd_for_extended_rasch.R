@@ -143,6 +143,27 @@ saveRDS(power.rsm, "power_rsm.rds")
 power.rsm <- readRDS("power_rsm.rds")
 # Core(TM) i9-12900   2.40 GHz: 48min
 
+(power.rsm.ad <- power.rsm %>% 
+  mutate(effect=str_remove(effect, "item")) %>% 
+  filter(effect!="nodenode2") %>% 
+  separate_wider_delim(effect,delim="_",names=c("a","d")))
+
+# sample size 50
+(pwr.N50.rsm <- power.rsm.ad %>% 
+    select(`50`,a,d) %>% 
+    filter(a>=0) %>% 
+    pivot_wider(names_from=a, values_from=`50`) %>% 
+    as.matrix()
+)
+stargazer(pwr.N50.rsm)
+(pwr.N200.rsm <- power.rsm.ad %>% 
+    select(`200`,a,d) %>% 
+    filter(a>=0) %>% 
+    pivot_wider(names_from=a, values_from=`200`) %>% 
+    as.matrix()
+)
+stargazer(pwr.N200.rsm)
+
 #===== LLTM, LRSM
 
 
