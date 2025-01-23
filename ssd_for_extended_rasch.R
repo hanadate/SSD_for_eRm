@@ -47,6 +47,7 @@ glmer.rasch <- readRDS("glmer_rasch.rds")
 
 # Power
 t<-proc.time()
+set.seed(1)
 power.rasch <- mixedpower(model=glmer.rasch, data=raschdat_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=N,
@@ -133,6 +134,7 @@ glmer.rsm <- readRDS("glmer_rsm.rds")
 
 # Power
 t<-proc.time()
+set.seed(1)
 power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
                           fixed_effects=c("item"),
                           simvar="person", steps=N,
@@ -163,6 +165,9 @@ stargazer(power.N50.rsm)
     as.matrix()
 )
 stargazer(power.N200.rsm)
+
+#==== gap btw RSM - RM
+
 
 #===== LLTM, LRSM
 
