@@ -177,9 +177,9 @@ stargazer(gap.rsm.rm.N200)
 
 ggplot(data.frame(RSM=as.numeric(power.N50.rsm[,2:4]), RM=as.numeric(power.N50.rasch[,2:4])), aes(RSM,RM))+
   geom_point()+
-  geom_abline(slope = 1, intercept = 0)+
+  geom_abline(slope=1, intercept=0, linetype="dashed")+
   jtools::theme_apa()
-ggsave("gap_rsm_rm.png",width=7,height=7)
+ggsave("gap_rsm_rm.png",width=3,height=3)
 cor(as.numeric(power.N50.rsm[,2:4]),as.numeric(power.N50.rasch[,2:4]))
 #===== LLTM, LRSM
 
