@@ -12,6 +12,7 @@ library(mixedpower)
 library(doParallel)
 library(mirt)
 library(stargazer)
+library(jtools)
 
 #===== RM, RSM
 a<-seq(0,1,.5) # Discrimination parameters
@@ -167,8 +168,19 @@ stargazer(power.N50.rsm)
 stargazer(power.N200.rsm)
 
 #==== gap btw RSM - RM
+power.N50.rsm
+power.N50.rasch
+gap.rsm.rm.N50<- matrix(as.numeric(power.N50.rsm[,2:4]) - as.numeric(power.N50.rasch[,2:4]), 5,3)
+stargazer(gap.rsm.rm.N50)
+gap.rsm.rm.N200<- matrix(as.numeric(power.N200.rsm[,2:4]) - as.numeric(power.N200.rasch[,2:4]), 5,3)
+stargazer(gap.rsm.rm.N200)
 
-
+ggplot(data.frame(RSM=as.numeric(power.N50.rsm[,2:4]), RM=as.numeric(power.N50.rasch[,2:4])), aes(RSM,RM))+
+  geom_point()+
+  geom_abline(slope = 1, intercept = 0)+
+  jtools::theme_apa()
+ggsave("gap_rsm_rm.png",width=7,height=7)
+cor(as.numeric(power.N50.rsm[,2:4]),as.numeric(power.N50.rasch[,2:4]))
 #===== LLTM, LRSM
 
 
