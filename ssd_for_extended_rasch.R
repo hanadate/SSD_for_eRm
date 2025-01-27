@@ -13,6 +13,7 @@ library(doParallel)
 library(mirt)
 library(stargazer)
 library(jtools)
+library(foreach)
 
 #===== RM, RSM
 a<-seq(0,1,.5) # Discrimination parameters
@@ -39,9 +40,9 @@ raschdat_long <- x1 %>%
          item=factor(item))
 raschdat_long$item <- factor(raschdat_long$item, levels=colnames(x1))
 t <- proc.time()
-(glmer.rasch <- glmer(resp ~ 0 + item + (1 | person), 
-                     data = raschdat_long, 
-                     family = binomial))
+(glmer.rasch <- glmer(resp ~ -1 + item + (1 | person), 
+                      data = raschdat_long, 
+                      family = binomial))
 proc.time()-t #15sec
 saveRDS(glmer.rasch, "glmer_rasch.rds")
 glmer.rasch <- readRDS("glmer_rasch.rds")
@@ -62,15 +63,15 @@ power.rasch
 multiplotPower(power.rasch)
 
 (power.rasch.ad <- power.rasch %>% 
-  mutate(effect=str_remove(effect, "item")) %>% 
-  separate_wider_delim(effect,delim="_",names=c("a","d")))
+    mutate(effect=str_remove(effect, "item")) %>% 
+    separate_wider_delim(effect,delim="_",names=c("a","d")))
 
 # sample size 50
 (power.N50.rasch <- power.rasch.ad %>% 
-  select(`50`,a,d) %>% 
-  filter(a>=0) %>% 
-  pivot_wider(names_from=a, values_from=`50`) %>% 
-  as.matrix()
+    select(`50`,a,d) %>% 
+    filter(a>=0) %>% 
+    pivot_wider(names_from=a, values_from=`50`) %>% 
+    as.matrix()
 )
 stargazer(power.N50.rasch)
 (power.N200.rasch <- power.rasch.ad %>% 
@@ -128,7 +129,7 @@ rsmdat_long$item <- factor(rsmdat_long$item, levels=colnames(x2))
 # lme4 for RSM
 t <- proc.time()
 (glmer.rsm <- glmer(resp_node ~ -1 + item + node + (1 | person), 
-                   family=binomial, data=rsmdat_long))
+                    family=binomial, data=rsmdat_long))
 proc.time()-t # 14sec
 saveRDS(glmer.rsm, "glmer_rsm.rds")
 glmer.rsm <- readRDS("glmer_rsm.rds")
@@ -137,19 +138,19 @@ glmer.rsm <- readRDS("glmer_rsm.rds")
 t<-proc.time()
 set.seed(1)
 power.rsm <- mixedpower(model=glmer.rsm, data=rsmdat_long,
-                          fixed_effects=c("item"),
-                          simvar="person", steps=N,
-                          critical_value=2, n_sim=1000,
-                          SESOI=FALSE, databased=TRUE)
+                        fixed_effects=c("item"),
+                        simvar="person", steps=N,
+                        critical_value=2, n_sim=1000,
+                        SESOI=FALSE, databased=TRUE)
 proc.time()-t 
 saveRDS(power.rsm, "power_rsm.rds")
 power.rsm <- readRDS("power_rsm.rds")
 # Core(TM) i9-12900   2.40 GHz: 48min
 
 (power.rsm.ad <- power.rsm %>% 
-  mutate(effect=str_remove(effect, "item")) %>% 
-  filter(effect!="nodenode2") %>% 
-  separate_wider_delim(effect,delim="_",names=c("a","d")))
+    mutate(effect=str_remove(effect, "item")) %>% 
+    filter(effect!="nodenode2") %>% 
+    separate_wider_delim(effect,delim="_",names=c("a","d")))
 
 # sample size 50
 (power.N50.rsm <- power.rsm.ad %>% 
@@ -178,11 +179,62 @@ stargazer(gap.rsm.rm.N200)
 ggplot(data.frame(RSM=as.numeric(power.N50.rsm[,2:4]), RM=as.numeric(power.N50.rasch[,2:4])), aes(RSM,RM))+
   geom_point()+
   geom_abline(slope=1, intercept=0, linetype="dashed")+
-  jtools::theme_apa()
+  jtools::theme_apa()+
+  scale_x_continuous(expand=expansion(mult=c(.1,.1)))+
+  scale_y_continuous(expand=expansion(mult=c(.1,.1)))
 ggsave("gap_rsm_rm.png",width=3,height=3)
 cor(as.numeric(power.N50.rsm[,2:4]),as.numeric(power.N50.rasch[,2:4]))
+
 #===== LLTM, LRSM
+# create design matrix
+eta1 <- c(2:3); eta2 <- c(2:3)
+eta1eta2 <- expand.grid(eta1=eta1, eta2=eta2) %>% 
+  filter(eta1>=eta2)
+W <- foreach(i=1:nrow(eta1eta2)) %do% {
+  W.tmp <- expand.grid(factor(seq(eta1eta2$eta1[i])), factor(seq(eta1eta2$eta2[i]))) %>% 
+    as.data.frame %>% 
+    mutate(item=factor(row_number()))
+  return(W.tmp)
+}
 
+# create dataset
+# Fix a=.5, d=.5, N=50
+set.seed(1)
+x3.tmp <- simdata(a=.5,d=.5,N=50,itemtype="dich") %>% 
+  as.data.frame()
+x3 <- data.frame(`!!`=rep(0,50))
+lW <- length(W)
+for (i in 1:nrow(W[[lW]])) {
+  x3 <- cbind(x3,x3.tmp)
+}
+colnames(x3) <- c("!!", c(1:9))
 
+lltmdat_long <- foreach(i=1:length(W)) %do% { 
+  lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
+    mutate(person=rownames(.)) %>%
+    pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
+    mutate(person=as.integer(person),
+           item=factor(item)) %>% 
+    inner_join(., W[[i]], by="item")
+}
 
-
+glmer.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
+  glmer(resp ~ -1 + Var1 + Var2 + (1 | person), 
+        data = lltmdat_long[[i]], 
+        family = binomial)
+}
+glmer.lltm
+saveRDS(glmer.lltm, "glmer_lltm.rds")
+glmer.lltm <- readRDS("glmer_lltm.rds")
+t <- proc.time()
+power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
+  mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
+             fixed_effects=c("Var1","Var2"),
+             simvar="person", steps=N,
+             critical_value=2, n_sim=1000,
+             SESOI=FALSE, databased=TRUE)
+}
+saveRDS(power.lltm, "power_lltm.rds")
+power.lltm <- readRDS("power_lltm.rds")
+proc.time()-t #1572sec
+power.lltm
