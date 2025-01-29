@@ -21,7 +21,7 @@ d<-seq(-1,1,.5) # Difficulty parameters
 ad<-expand.grid(a,d) %>% 
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d))
-N<-seq(25,200,25)
+N<-c(50,100,200,400,800)
 
 #==== RM
 # create data
@@ -91,7 +91,7 @@ ad<-expand.grid(a,d) %>%
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d),
          d2=d-1)
-N<-seq(50,200,50)
+N<-c(50,100,200,400,800)
 # Specify item type as 'graded' for polytomous data
 itemtype <- rep('graded', length(a))
 # Generate data
@@ -203,7 +203,7 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
 # create dataset
 # Fix a=.5, d=.5, N=50
 set.seed(1)
-x3.tmp <- simdata(a=.5,d=.5,N=50,itemtype="dich") %>% 
+x3.tmp <- simdata(a=.5,d=.5,N=max(N),itemtype="dich") %>% 
   as.data.frame()
 x3 <- data.frame(`!!`=rep(0,50))
 lW <- length(W)
@@ -259,7 +259,7 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
 # create dataset
 # Fix a=.5, d=0, N=50
 set.seed(1)
-x3.tmp <- simdata(a=.5,d=0,N=50,itemtype="dich") %>% 
+x3.tmp <- simdata(a=.5,d=0,N=max(N),itemtype="dich") %>% 
   as.data.frame()
 x3 <- data.frame(`!!`=rep(0,50))
 lW <- length(W)
@@ -297,3 +297,4 @@ saveRDS(power.lltm2, "power_lltm2.rds")
 power.lltm2 <- readRDS("power_lltm2.rds")
 proc.time()-t #13651sec
 power.lltm2
+power.lltm
