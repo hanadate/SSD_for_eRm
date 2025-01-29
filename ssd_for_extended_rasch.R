@@ -21,7 +21,7 @@ d<-seq(-1,1,.5) # Difficulty parameters
 ad<-expand.grid(a,d) %>% 
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d))
-N<-seq(50,200,50)
+N<-seq(25,200,25)
 
 #==== RM
 # create data
@@ -187,16 +187,19 @@ cor(as.numeric(power.N50.rsm[,2:4]),as.numeric(power.N50.rasch[,2:4]))
 
 #===== LLTM, LRSM
 # create design matrix
-eta1 <- c(2:3); eta2 <- c(2:3)
-eta1eta2 <- expand.grid(eta1=eta1, eta2=eta2) %>% 
-  filter(eta1>=eta2)
+eta1 <- c(2:3); eta2 <- c(2:3); eta3 <- c(2:3)
+eta1eta2 <- expand.grid(eta1=eta1, eta2=eta2, eta3=eta3) %>% 
+  filter(eta1>=eta2 & eta2>=eta3)
 W <- foreach(i=1:nrow(eta1eta2)) %do% {
-  W.tmp <- expand.grid(factor(seq(eta1eta2$eta1[i])), factor(seq(eta1eta2$eta2[i]))) %>% 
+  W.tmp <- expand.grid(factor(seq(eta1eta2$eta1[i])), 
+                       factor(seq(eta1eta2$eta2[i])),
+                       factor(seq(eta1eta2$eta3[i]))) %>% 
     as.data.frame %>% 
     mutate(item=factor(row_number()))
   return(W.tmp)
 }
 
+#=== LLTM
 # create dataset
 # Fix a=.5, d=.5, N=50
 set.seed(1)
@@ -207,7 +210,7 @@ lW <- length(W)
 for (i in 1:nrow(W[[lW]])) {
   x3 <- cbind(x3,x3.tmp)
 }
-colnames(x3) <- c("!!", c(1:9))
+colnames(x3) <- c("!!", c(1:nrow(W[[length(W)]])))
 
 lltmdat_long <- foreach(i=1:length(W)) %do% { 
   lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
@@ -219,7 +222,7 @@ lltmdat_long <- foreach(i=1:length(W)) %do% {
 }
 
 glmer.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
-  glmer(resp ~ -1 + Var1 + Var2 + (1 | person), 
+  glmer(resp ~ -1 + Var1 + Var2 + Var3 + (1 | person), 
         data = lltmdat_long[[i]], 
         family = binomial)
 }
@@ -236,5 +239,61 @@ power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
 }
 saveRDS(power.lltm, "power_lltm.rds")
 power.lltm <- readRDS("power_lltm.rds")
-proc.time()-t #1572sec
+proc.time()-t #13651sec
 power.lltm
+
+# create design matrix
+eta1 <- c(2:3); eta2 <- c(2:3); eta3 <- c(2:3)
+eta1eta2 <- expand.grid(eta1=eta1, eta2=eta2, eta3=eta3) %>% 
+  filter(eta1>=eta2 & eta2>=eta3)
+W <- foreach(i=1:nrow(eta1eta2)) %do% {
+  W.tmp <- expand.grid(factor(seq(eta1eta2$eta1[i])), 
+                       factor(seq(eta1eta2$eta2[i])),
+                       factor(seq(eta1eta2$eta3[i]))) %>% 
+    as.data.frame %>% 
+    mutate(item=factor(row_number()))
+  return(W.tmp)
+}
+
+#==== LLTM2
+# create dataset
+# Fix a=.5, d=0, N=50
+set.seed(1)
+x3.tmp <- simdata(a=.5,d=0,N=50,itemtype="dich") %>% 
+  as.data.frame()
+x3 <- data.frame(`!!`=rep(0,50))
+lW <- length(W)
+for (i in 1:nrow(W[[lW]])) {
+  x3 <- cbind(x3,x3.tmp)
+}
+colnames(x3) <- c("!!", c(1:nrow(W[[length(W)]])))
+
+lltmdat_long <- foreach(i=1:length(W)) %do% { 
+  lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
+    mutate(person=rownames(.)) %>%
+    pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
+    mutate(person=as.integer(person),
+           item=factor(item)) %>% 
+    inner_join(., W[[i]], by="item")
+}
+
+glmer.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
+  glmer(resp ~ -1 + Var1 + Var2 + Var3 + (1 | person), 
+        data = lltmdat_long[[i]], 
+        family = binomial)
+}
+glmer.lltm
+saveRDS(glmer.lltm, "glmer_lltm.rds")
+glmer.lltm <- readRDS("glmer_lltm.rds")
+t <- proc.time()
+power.lltm2 <- foreach(i=1:length(lltmdat_long)) %do% {
+  mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
+             fixed_effects=c("Var1","Var2"),
+             simvar="person", steps=N,
+             critical_value=2, n_sim=1000,
+             SESOI=FALSE, databased=TRUE)
+}
+saveRDS(power.lltm2, "power_lltm2.rds")
+power.lltm2 <- readRDS("power_lltm2.rds")
+proc.time()-t #13651sec
+power.lltm2

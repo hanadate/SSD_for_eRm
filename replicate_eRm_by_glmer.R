@@ -83,8 +83,17 @@ VerbAgg_W_lltm <- VerbAgg %>%
 # eRm for LLTM
 erm.lltm <- LLTM(VerbAgg2[,-c(1:2)]-1,VerbAgg_W_lltm[,-1],sum0=TRUE)
 # lme4 for LLTM
+VerbAgg <- VerbAgg %>% 
+  mutate(id=as.numeric(id))
 glmer.lltm <- glmer(resp ~ btype + situ + mode + (1 | id),
-      family=binomial, data=VerbAgg)
+                    family=binomial, data=VerbAgg)
+# power
+power.lltm <- mixedpower(model=glmer.lltm, data=VerbAgg,
+                         fixed_effects=c("btype","situ","mode"),
+                         simvar="id", steps=c(50,100,150,200),
+                         critical_value=2, n_sim=1000,
+                         SESOI=FALSE, databased=TRUE)
+power.lltm
 # summary result
 #=====
 erm.lltm.est <- erm.lltm$etapar %>% 
@@ -224,11 +233,11 @@ stargazer(compare.rsm, summary=FALSE, rownames=FALSE,
           title="Replication \\texttt{eRm::rsm} by \\texttt{lme4::glmer}")
 # Create the plot
 compare.rsm.long <- bind_rows(mutate(erm.rsm.est.se,group="eRm") %>% 
-                                 select(item,eRm.est,eRm.se,group) %>% 
-                                 rename(est=eRm.est, se=eRm.se)
-                               , mutate(glmer.rsm.est.se,group="glmer") %>% 
-                                 select(item,glmer.est,glmer.se,group) %>% 
-                                 rename(est=glmer.est, se=glmer.se)) %>% 
+                                select(item,eRm.est,eRm.se,group) %>% 
+                                rename(est=eRm.est, se=eRm.se)
+                              , mutate(glmer.rsm.est.se,group="glmer") %>% 
+                                select(item,glmer.est,glmer.se,group) %>% 
+                                rename(est=glmer.est, se=glmer.se)) %>% 
   filter(item!="(Intercept)")
 ggplot(compare.rsm.long, aes(x = item, y = est, fill = group)) + 
   geom_col(position = position_dodge(0.7), width = 0.5) +
