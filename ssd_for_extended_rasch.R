@@ -21,7 +21,7 @@ d<-seq(-1,1,.5) # Difficulty parameters
 ad<-expand.grid(a,d) %>% 
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d))
-N<-c(50,100,200,400,800)
+N<-c(50,200,1000)
 
 #==== RM
 # create data
@@ -60,7 +60,6 @@ proc.time()-t
 saveRDS(power.rasch, "power_rasch.rds")
 power.rasch <- readRDS("power_rasch.rds")
 power.rasch
-multiplotPower(power.rasch)
 
 (power.rasch.ad <- power.rasch %>% 
     mutate(effect=str_remove(effect, "item")) %>% 
@@ -91,7 +90,7 @@ ad<-expand.grid(a,d) %>%
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d),
          d2=d-1)
-N<-c(50,100,200,400,800)
+N<-c(50,200,1000)
 # Specify item type as 'graded' for polytomous data
 itemtype <- rep('graded', length(a))
 # Generate data
@@ -231,6 +230,7 @@ saveRDS(glmer.lltm, "glmer_lltm.rds")
 glmer.lltm <- readRDS("glmer_lltm.rds")
 t <- proc.time()
 power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
+  set.seed(1)
   mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
              fixed_effects=c("Var1","Var2"),
              simvar="person", steps=N,
@@ -239,7 +239,7 @@ power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
 }
 saveRDS(power.lltm, "power_lltm.rds")
 power.lltm <- readRDS("power_lltm.rds")
-proc.time()-t #13651sec
+proc.time()-t #44603sec
 power.lltm
 
 # create design matrix
@@ -287,6 +287,7 @@ saveRDS(glmer.lltm, "glmer_lltm.rds")
 glmer.lltm <- readRDS("glmer_lltm.rds")
 t <- proc.time()
 power.lltm2 <- foreach(i=1:length(lltmdat_long)) %do% {
+  set.seed(1)
   mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
              fixed_effects=c("Var1","Var2"),
              simvar="person", steps=N,
@@ -295,6 +296,6 @@ power.lltm2 <- foreach(i=1:length(lltmdat_long)) %do% {
 }
 saveRDS(power.lltm2, "power_lltm2.rds")
 power.lltm2 <- readRDS("power_lltm2.rds")
-proc.time()-t #13651sec
+proc.time()-t #44603sec
 power.lltm2
 power.lltm
