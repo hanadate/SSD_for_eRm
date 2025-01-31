@@ -80,7 +80,13 @@ stargazer(power.N50.rasch)
     as.matrix()
 )
 stargazer(power.N200.rasch)
-
+(power.N1000.rasch <- power.rasch.ad %>% 
+    select(`1000`,a,d) %>% 
+    filter(a>=0) %>% 
+    pivot_wider(names_from=a, values_from=`1000`) %>% 
+    as.matrix()
+)
+stargazer(power.N1000.rasch)
 #==== RSM
 # create data
 # Define item parameters
@@ -90,7 +96,6 @@ ad<-expand.grid(a,d) %>%
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d),
          d2=d-1)
-N<-c(50,200,1000)
 # Specify item type as 'graded' for polytomous data
 itemtype <- rep('graded', length(a))
 # Generate data
@@ -129,7 +134,7 @@ rsmdat_long$item <- factor(rsmdat_long$item, levels=colnames(x2))
 t <- proc.time()
 (glmer.rsm <- glmer(resp_node ~ -1 + item + node + (1 | person), 
                     family=binomial, data=rsmdat_long))
-proc.time()-t # 14sec
+proc.time()-t # 
 saveRDS(glmer.rsm, "glmer_rsm.rds")
 glmer.rsm <- readRDS("glmer_rsm.rds")
 
@@ -166,6 +171,13 @@ stargazer(power.N50.rsm)
     as.matrix()
 )
 stargazer(power.N200.rsm)
+(power.N1000.rsm <- power.rsm.ad %>% 
+    select(`1000`,a,d) %>% 
+    filter(a>=0) %>% 
+    pivot_wider(names_from=a, values_from=`1000`) %>% 
+    as.matrix()
+)
+stargazer(power.N1000.rsm)
 
 #==== gap btw RSM - RM
 power.N50.rsm
@@ -194,17 +206,18 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
                        factor(seq(eta1eta2$eta2[i])),
                        factor(seq(eta1eta2$eta3[i]))) %>% 
     as.data.frame %>% 
-    mutate(item=factor(row_number()))
+    mutate(item=factor(row_number())) %>% 
+    select(item, Var1, Var2, Var3)
   return(W.tmp)
 }
 
 #=== LLTM
 # create dataset
-# Fix a=.5, d=.5, N=50
+# Fix a=.5, d=.5, N=c(50,200,1000)
 set.seed(1)
 x3.tmp <- simdata(a=.5,d=.5,N=max(N),itemtype="dich") %>% 
   as.data.frame()
-x3 <- data.frame(`!!`=rep(0,50))
+x3 <- data.frame(`!!`=rep(0,max(N)))
 lW <- length(W)
 for (i in 1:nrow(W[[lW]])) {
   x3 <- cbind(x3,x3.tmp)
@@ -232,7 +245,7 @@ t <- proc.time()
 power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
   set.seed(1)
   mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
-             fixed_effects=c("Var1","Var2"),
+             fixed_effects=c("Var1","Var2","Var3"),
              simvar="person", steps=N,
              critical_value=2, n_sim=1000,
              SESOI=FALSE, databased=TRUE)
@@ -242,60 +255,70 @@ power.lltm <- readRDS("power_lltm.rds")
 proc.time()-t #44603sec
 power.lltm
 
-# create design matrix
-eta1 <- c(2:3); eta2 <- c(2:3); eta3 <- c(2:3)
-eta1eta2 <- expand.grid(eta1=eta1, eta2=eta2, eta3=eta3) %>% 
-  filter(eta1>=eta2 & eta2>=eta3)
-W <- foreach(i=1:nrow(eta1eta2)) %do% {
-  W.tmp <- expand.grid(factor(seq(eta1eta2$eta1[i])), 
-                       factor(seq(eta1eta2$eta2[i])),
-                       factor(seq(eta1eta2$eta3[i]))) %>% 
-    as.data.frame %>% 
-    mutate(item=factor(row_number()))
-  return(W.tmp)
-}
-
-#==== LLTM2
+#==== LRSM
 # create dataset
-# Fix a=.5, d=0, N=50
+# Fix a=.5, d=.5, N=c(50,200,1000)
 set.seed(1)
-x3.tmp <- simdata(a=.5,d=0,N=max(N),itemtype="dich") %>% 
+x4.tmp <- simdata(a=.5, d=matrix(c(.5, -.5) , 1, 2), N=max(N), 
+                  itemtype="graded") %>% 
   as.data.frame()
-x3 <- data.frame(`!!`=rep(0,50))
+x4 <- data.frame(`!!`=rep(0,max(N)))
 lW <- length(W)
 for (i in 1:nrow(W[[lW]])) {
-  x3 <- cbind(x3,x3.tmp)
+  x4 <- cbind(x4,x4.tmp)
 }
-colnames(x3) <- c("!!", c(1:nrow(W[[length(W)]])))
+colnames(x4) <- c("!!", c(1:nrow(W[[length(W)]])))
 
-lltmdat_long <- foreach(i=1:length(W)) %do% { 
-  lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
+# mapping matrix for linear tree
+linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
+  `rownames<-`(c(0,1,2)) %>% 
+  as.matrix()
+# add a column has original responses for linear tree map 
+linear_tree_map_resp <- 
+  rownames_to_column(as.data.frame(linear_tree_map), var="resp") %>% 
+  mutate(resp=as.double(resp))
+
+lrsmdat_long <- foreach(i=1:length(W)) %do% { 
+  lrsmdat_long.tmp <- x4 %>% 
+    as.data.frame() %>% 
+    # long form
     mutate(person=rownames(.)) %>%
     pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
     mutate(person=as.integer(person),
+           item=factor(item)) %>%  
+    left_join(., linear_tree_map_resp, by=c("resp")) %>% 
+    pivot_longer(cols=starts_with("node"),
+                 names_to="node",
+                 values_to="resp_node") %>% 
+    mutate(person=as.integer(person),
            item=factor(item)) %>% 
     inner_join(., W[[i]], by="item")
+  return(lrsmdat_long.tmp)
 }
 
-glmer.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
-  glmer(resp ~ -1 + Var1 + Var2 + Var3 + (1 | person), 
-        data = lltmdat_long[[i]], 
+
+# lme4 for LRSM
+t <- proc.time()
+glmer.lrsm <- foreach(i=1:length(lrsmdat_long)) %do% {
+  glmer(resp_node ~ -1 + Var1 + Var2 + Var3 + node + (1 | person), 
+        data = lrsmdat_long[[i]], 
         family = binomial)
 }
-glmer.lltm
-saveRDS(glmer.lltm, "glmer_lltm.rds")
-glmer.lltm <- readRDS("glmer_lltm.rds")
+proc.time()-t # 224sec
+saveRDS(glmer.lrsm, "glmer_lrsm.rds")
+glmer.lrsm <- readRDS("glmer_lrsm.rds")
+
+# Power
 t <- proc.time()
-power.lltm2 <- foreach(i=1:length(lltmdat_long)) %do% {
+power.lrsm <- foreach(i=1:length(lrsmdat_long)) %do% {
   set.seed(1)
-  mixedpower(model=glmer.lltm[[i]], data=lltmdat_long[[i]],
-             fixed_effects=c("Var1","Var2"),
+  mixedpower(model=glmer.lrsm[[i]], data=lrsmdat_long[[i]],
+             fixed_effects=c("Var1","Var2","Var3","node"),
              simvar="person", steps=N,
              critical_value=2, n_sim=1000,
              SESOI=FALSE, databased=TRUE)
 }
-saveRDS(power.lltm2, "power_lltm2.rds")
-power.lltm2 <- readRDS("power_lltm2.rds")
-proc.time()-t #44603sec
-power.lltm2
-power.lltm
+proc.time()-t
+saveRDS(power.lrsm, "power_lrsm.rds")
+power.lrsm <- readRDS("power_lrsm.rds")
+
