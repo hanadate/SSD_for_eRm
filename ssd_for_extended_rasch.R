@@ -211,25 +211,22 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
   return(W.tmp)
 }
 
-#=== LLTM for coping same res
+#=== LLTM
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
 set.seed(1)
-x3.tmp <- simdata(a=.5,d=.5,N=max(N),itemtype="dich") %>% 
-  as.data.frame()
-x3 <- data.frame(`!!`=rep(0,max(N)))
+x3 <- simdata(a=rep(.5,nrow(W[[lW]])),d=rep(.5,nrow(W[[lW]])),N=max(N),itemtype="dich") %>% 
+  as.data.frame() %>% 
+  mutate(`!!`=0) %>% 
+  select(`!!`,everything())
 lW <- length(W)
-for (i in 1:nrow(W[[lW]])) {
-  x3 <- cbind(x3,x3.tmp)
-}
-colnames(x3) <- c("!!", c(1:nrow(W[[length(W)]])))
 
 lltmdat_long <- foreach(i=1:length(W)) %do% { 
   lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
     mutate(person=rownames(.)) %>%
     pivot_longer(cols=-person, names_to="item", values_to="resp") %>% 
     mutate(person=as.integer(person),
-           item=factor(item)) %>% 
+           item=factor(str_remove(item,"Item_"))) %>% 
     inner_join(., W[[i]], by="item")
 }
 
@@ -250,24 +247,23 @@ power.lltm <- foreach(i=1:length(lltmdat_long)) %do% {
              critical_value=2, n_sim=1000,
              SESOI=FALSE, databased=TRUE)
 }
+proc.time()-t #44603sec
 saveRDS(power.lltm, "power_lltm.rds")
 power.lltm <- readRDS("power_lltm.rds")
-proc.time()-t #44603sec
 power.lltm
 
 #==== LRSM
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
 set.seed(1)
-x4.tmp <- simdata(a=.5, d=matrix(c(.5, -.5) , 1, 2), N=max(N), 
-                  itemtype="graded") %>% 
-  as.data.frame()
-x4 <- data.frame(`!!`=rep(0,max(N)))
+
+x4 <- simdata(a=rep(.5,nrow(W[[lW]])),
+              d=matrix(c(rep(.5,nrow(W[[lW]])), rep(.5-1,nrow(W[[lW]]))),nrow(W[[lW]]),2),
+              N=max(N),itemtype="graded") %>% 
+  as.data.frame() %>% 
+  mutate(`!!`=0) %>% 
+  select(`!!`,everything())
 lW <- length(W)
-for (i in 1:nrow(W[[lW]])) {
-  x4 <- cbind(x4,x4.tmp)
-}
-colnames(x4) <- c("!!", c(1:nrow(W[[length(W)]])))
 
 # mapping matrix for linear tree
 linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
@@ -291,11 +287,10 @@ lrsmdat_long <- foreach(i=1:length(W)) %do% {
                  names_to="node",
                  values_to="resp_node") %>% 
     mutate(person=as.integer(person),
-           item=factor(item)) %>% 
+           item=factor(str_remove(item,"Item_"))) %>% 
     inner_join(., W[[i]], by="item")
   return(lrsmdat_long.tmp)
 }
-
 
 # lme4 for LRSM
 t <- proc.time()
@@ -304,7 +299,7 @@ glmer.lrsm <- foreach(i=1:length(lrsmdat_long)) %do% {
         data = lrsmdat_long[[i]], 
         family = binomial)
 }
-proc.time()-t # 224sec
+proc.time()-t # 48sec
 saveRDS(glmer.lrsm, "glmer_lrsm.rds")
 glmer.lrsm <- readRDS("glmer_lrsm.rds")
 
