@@ -211,7 +211,7 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
   return(W.tmp)
 }
 
-#=== LLTM
+#=== LLTM for coping same res
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
 set.seed(1)
