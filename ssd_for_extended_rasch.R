@@ -252,6 +252,16 @@ saveRDS(power.lltm, "power_lltm.rds")
 power.lltm <- readRDS("power_lltm.rds")
 power.lltm
 
+(power.lltm.summary <- foreach(i=1:length(power.lltm), .combine="rbind") %do% {
+  tmp <- power.lltm[[i]] %>% 
+    select(effect,`50`,`200`,`1000`) %>% 
+    pivot_longer(cols=c("50","200","1000"),names_to="N", values_to="power") %>% 
+    mutate(case=i)
+} %>% 
+  pivot_wider(names_from="effect", values_from="power") %>% 
+  select(case, N, Var12, Var13, Var22, Var23, Var32, Var33) %>% 
+  as.matrix())
+stargazer(power.lltm.summary)
 #==== LRSM
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
@@ -316,3 +326,13 @@ proc.time()-t #23564sec
 saveRDS(power.lrsm, "power_lrsm.rds")
 power.lrsm <- readRDS("power_lrsm.rds")
 
+(power.lrsm.summary <- foreach(i=1:length(power.lrsm), .combine="rbind") %do% {
+  tmp <- power.lrsm[[i]] %>% 
+    select(effect,`50`,`200`,`1000`) %>% 
+    pivot_longer(cols=c("50","200","1000"),names_to="N", values_to="power") %>% 
+    mutate(case=i)
+} %>% 
+    pivot_wider(names_from="effect", values_from="power") %>% 
+    select(case, N, Var12, Var13, Var22, Var23, Var32, Var33, nodenode2) %>% 
+    as.matrix())
+stargazer(power.lrsm.summary)
