@@ -322,7 +322,7 @@ power.lrsm <- foreach(i=1:length(lrsmdat_long)) %do% {
              critical_value=2, n_sim=1000,
              SESOI=FALSE, databased=TRUE)
 }
-proc.time()-t #23564sec
+proc.time()-t #6.5h
 saveRDS(power.lrsm, "power_lrsm.rds")
 power.lrsm <- readRDS("power_lrsm.rds")
 
@@ -336,3 +336,31 @@ power.lrsm <- readRDS("power_lrsm.rds")
     select(case, N, Var12, Var13, Var22, Var23, Var32, Var33, nodenode2) %>% 
     as.matrix())
 stargazer(power.lrsm.summary)
+
+power.lltm.summary.50 <- as.data.frame(power.lltm.summary) %>% 
+  filter(N==50) %>% 
+  pivot_longer(cols=starts_with("Var"),names_to="item",values_to="power") %>% 
+  mutate(power=as.numeric(power)) %>% 
+  rename(power.lltm=power) %>% 
+  na.omit()
+power.lrsm.summary.50 <- as.data.frame(power.lrsm.summary) %>% 
+  filter(N==50) %>% 
+  select(-nodenode2) %>% 
+  pivot_longer(cols=starts_with("Var"),names_to="item",values_to="power") %>% 
+  mutate(power=as.numeric(power)) %>% 
+  rename(power.lrsm=power) %>% 
+  na.omit()
+power.lltm.lrsm.summary.50 <- 
+  inner_join(power.lltm.summary.50, power.lrsm.summary.50, by=c("case","N","item"))
+
+ggplot(power.lltm.lrsm.summary.50, aes(x=power.lrsm, y=power.lltm))+
+  geom_point()+
+  geom_abline(slope=1, intercept=0, linetype="dashed")+
+  jtools::theme_apa()+
+  scale_x_continuous(expand=expansion(mult=c(.1,.1)))+
+  xlim(0,1)+xlab("LRSM")+
+  scale_y_continuous(expand=expansion(mult=c(.1,.1)))+
+  ylim(0,1)+ylab("LLTM")
+ggsave("gap_lrsm_lltm.png",width=3,height=3)
+cor(power.lltm.lrsm.summary.50$power.lltm, power.lltm.lrsm.summary.50$power.lrsm)
+
