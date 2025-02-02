@@ -210,6 +210,7 @@ W <- foreach(i=1:nrow(eta1eta2)) %do% {
     select(item, Var1, Var2, Var3)
   return(W.tmp)
 }
+lW <- length(W)
 
 #=== LLTM
 # create dataset
@@ -219,7 +220,6 @@ x3 <- simdata(a=rep(.5,nrow(W[[lW]])),d=rep(.5,nrow(W[[lW]])),N=max(N),itemtype=
   as.data.frame() %>% 
   mutate(`!!`=0) %>% 
   select(`!!`,everything())
-lW <- length(W)
 
 lltmdat_long <- foreach(i=1:length(W)) %do% { 
   lltmdat_long.tmp <- x3[,1:(nrow(W[[i]])+1)] %>% 
@@ -263,7 +263,6 @@ x4 <- simdata(a=rep(.5,nrow(W[[lW]])),
   as.data.frame() %>% 
   mutate(`!!`=0) %>% 
   select(`!!`,everything())
-lW <- length(W)
 
 # mapping matrix for linear tree
 linear_tree_map <- data.frame(node1=c(0,1,1), node2=c(NA,0,1)) %>% 
