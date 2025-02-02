@@ -313,7 +313,7 @@ power.lrsm <- foreach(i=1:length(lrsmdat_long)) %do% {
              critical_value=2, n_sim=1000,
              SESOI=FALSE, databased=TRUE)
 }
-proc.time()-t
+proc.time()-t #23564sec
 saveRDS(power.lrsm, "power_lrsm.rds")
 power.lrsm <- readRDS("power_lrsm.rds")
 
