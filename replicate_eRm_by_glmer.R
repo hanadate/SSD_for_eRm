@@ -56,7 +56,7 @@ stargazer(compare.rasch, summary=FALSE, rownames=FALSE,
 compare.rasch.long <- bind_rows(mutate(erm.rasch.est.se,group="eRm") %>% 
                                   select(item,eRm.est,eRm.se,group) %>% 
                                   rename(est=eRm.est, se=eRm.se)
-                                , mutate(glmer.rasch.est.se,group="glmer") %>% 
+                                , mutate(glmer.rasch.est.se,group="lme4") %>% 
                                   select(item,glmer.est,glmer.se,group) %>% 
                                   rename(est=glmer.est, se=glmer.se)) %>% 
   filter(item!="(Intercept)")
@@ -87,13 +87,13 @@ VerbAgg <- VerbAgg %>%
   mutate(id=as.numeric(id))
 glmer.lltm <- glmer(resp ~ btype + situ + mode + (1 | id),
                     family=binomial, data=VerbAgg)
-# power
-power.lltm <- mixedpower(model=glmer.lltm, data=VerbAgg,
-                         fixed_effects=c("btype","situ","mode"),
-                         simvar="id", steps=c(50,100,150,200),
-                         critical_value=2, n_sim=1000,
-                         SESOI=FALSE, databased=TRUE)
-power.lltm
+# # power
+# power.lltm <- mixedpower(model=glmer.lltm, data=VerbAgg,
+#                          fixed_effects=c("btype","situ","mode"),
+#                          simvar="id", steps=c(50,100,150,200),
+#                          critical_value=2, n_sim=1000,
+#                          SESOI=FALSE, databased=TRUE)
+# power.lltm
 # summary result
 #=====
 erm.lltm.est <- erm.lltm$etapar %>% 
@@ -133,7 +133,7 @@ stargazer(compare.lltm, summary=FALSE, rownames=FALSE,
 compare.lltm.long <- bind_rows(mutate(erm.lltm.est.se,group="eRm") %>% 
                                  select(item,eRm.est,eRm.se,group) %>% 
                                  rename(est=eRm.est, se=eRm.se)
-                               , mutate(glmer.lltm.est.se,group="glmer") %>% 
+                               , mutate(glmer.lltm.est.se,group="lme4") %>% 
                                  select(item,glmer.est,glmer.se,group) %>% 
                                  rename(est=glmer.est, se=glmer.se)) %>% 
   filter(item!="(Intercept)") %>% 
@@ -235,7 +235,7 @@ stargazer(compare.rsm, summary=FALSE, rownames=FALSE,
 compare.rsm.long <- bind_rows(mutate(erm.rsm.est.se,group="eRm") %>% 
                                 select(item,eRm.est,eRm.se,group) %>% 
                                 rename(est=eRm.est, se=eRm.se)
-                              , mutate(glmer.rsm.est.se,group="glmer") %>% 
+                              , mutate(glmer.rsm.est.se,group="lme4") %>% 
                                 select(item,glmer.est,glmer.se,group) %>% 
                                 rename(est=glmer.est, se=glmer.se)) %>% 
   filter(item!="(Intercept)")
@@ -303,7 +303,7 @@ stargazer(compare.lrsm, summary=FALSE, rownames=FALSE,
 compare.lrsm.long <- bind_rows(mutate(erm.lrsm.est.se,group="eRm") %>% 
                                  select(item,eRm.est,eRm.se,group) %>% 
                                  rename(est=eRm.est, se=eRm.se)
-                               , mutate(glmer.lrsm.est.se,group="glmer") %>% 
+                               , mutate(glmer.lrsm.est.se,group="lme4") %>% 
                                  select(item,glmer.est,glmer.se,group) %>% 
                                  rename(est=glmer.est, se=glmer.se)) %>% 
   filter(item!="(Intercept)") %>% 
@@ -398,7 +398,7 @@ ggsave("replrsm.png",width=7,height=3)
 # compare.lpcm.long <- bind_rows(mutate(erm.lpcm.est.se,group="eRm") %>% 
 #                                  select(item,eRm.est,eRm.se,group) %>% 
 #                                  rename(est=eRm.est, se=eRm.se)
-#                                , mutate(glmer.lpcm.est.se,group="glmer") %>% 
+#                                , mutate(glmer.lpcm.est.se,group="lme4") %>% 
 #                                  select(item,glmer.est,glmer.se,group) %>% 
 #                                  rename(est=glmer.est, se=glmer.se)) %>% 
 #   filter(item!="(Intercept)")
