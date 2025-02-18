@@ -1,4 +1,5 @@
 # 
+*.pptx
 *.pdf
 # History files
 .Rhistory
