@@ -1,4 +1,8 @@
 # 
+*.txt
+*.docx
+*.doc
+*.tex
 *.pptx
 *.pdf
 # History files
