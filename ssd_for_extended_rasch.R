@@ -262,6 +262,19 @@ power.lltm
   select(case, N, Var12, Var13, Var22, Var23, Var32, Var33) %>% 
   as.matrix())
 stargazer(power.lltm.summary)
+
+# gap btw design matrices
+power.lltm.summary %>% 
+  as.data.frame() %>% 
+  mutate(across(everything(), ~as.numeric(.x))) %>% 
+  select(case, N, Var12, Var22, Var32) %>% 
+  filter(N==50) %>% 
+  pivot_longer(cols=c(Var12, Var22, Var32), names_to="parameter", values_to="power") %>% 
+  ggplot(.) + 
+  geom_line(aes(x=case, y=power, group=parameter, linetype=parameter))+
+  xlab("Complexity of item-design matrix for LLTM")+
+  jtools::theme_apa()
+ggsave("dm_lltm.png",width=4.5,height=3)
 #==== LRSM
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
@@ -337,6 +350,19 @@ power.lrsm <- readRDS("power_lrsm.rds")
     as.matrix())
 stargazer(power.lrsm.summary)
 
+power.lrsm.summary %>% 
+  as.data.frame() %>% 
+  mutate(across(everything(), ~as.numeric(.x))) %>% 
+  select(case, N, Var12, Var22, Var32) %>% 
+  filter(N==50) %>% 
+  pivot_longer(cols=c(Var12, Var22, Var32), names_to="parameter", values_to="power") %>% 
+  ggplot(.) + 
+  geom_line(aes(x=case, y=power, group=parameter, linetype=parameter))+
+  xlab("Complexity of item-design matrix for LRSM")+
+  jtools::theme_apa()
+ggsave("dm_lrsm.png",width=4.5,height=3)
+
+#==== gap btw LRSM - LLTM
 power.lltm.summary.50 <- as.data.frame(power.lltm.summary) %>% 
   filter(N==50) %>% 
   pivot_longer(cols=starts_with("Var"),names_to="item",values_to="power") %>% 
@@ -363,4 +389,3 @@ ggplot(power.lltm.lrsm.summary.50, aes(x=power.lrsm, y=power.lltm))+
   ylim(0,1)+ylab("LLTM")
 ggsave("gap_lrsm_lltm.png",width=3,height=3)
 cor(power.lltm.lrsm.summary.50$power.lltm, power.lltm.lrsm.summary.50$power.lrsm)
-
