@@ -87,6 +87,10 @@ stargazer(power.N200.rasch)
     as.matrix()
 )
 stargazer(power.N1000.rasch)
+
+# asymptotic variance
+var.rasch <- diag(vcov(glmer.rasch))
+
 #==== RSM
 # create data
 # Define item parameters
@@ -179,6 +183,9 @@ stargazer(power.N200.rsm)
 )
 stargazer(power.N1000.rsm)
 
+# asymptotic variance
+var.rsm <- diag(vcov(glmer.rsm))
+
 #==== gap btw RSM - RM
 power.N50.rsm
 power.N50.rasch
@@ -195,6 +202,9 @@ ggplot(data.frame(RSM=as.numeric(power.N50.rsm[,2:4]), RM=as.numeric(power.N50.r
   scale_y_continuous(expand=expansion(mult=c(.1,.1)))
 ggsave("gap_rsm_rm.png",width=3,height=3)
 cor(as.numeric(power.N50.rsm[,2:4]),as.numeric(power.N50.rasch[,2:4]))
+
+data.frame(RSM=head(var.rsm,-1), RM=var.rasch) %>% 
+  mutate(RSM_RM=RSM-RM)
 
 #===== LLTM, LRSM
 # create design matrix
@@ -273,8 +283,13 @@ power.lltm.summary %>%
   ggplot(.) + 
   geom_line(aes(x=case, y=power, group=parameter, linetype=parameter))+
   xlab("Complexity of item-design matrix for LLTM")+
-  jtools::theme_apa()
+  jtools::theme_apa()+
+  ylim(c(0,1))
 ggsave("dm_lltm.png",width=4.5,height=3)
+
+# asymptotic variance
+(lapply(lapply(glmer.lltm, vcov), diag))
+
 #==== LRSM
 # create dataset
 # Fix a=.5, d=.5, N=c(50,200,1000)
