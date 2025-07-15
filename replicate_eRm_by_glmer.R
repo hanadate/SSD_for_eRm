@@ -50,7 +50,7 @@ compare.rasch <- full_join(glmer.rasch.est.se, erm.rasch.est.se, by="item") %>%
   mutate(gap=abs(eRm.est-glmer.est))
 stargazer(compare.rasch, summary=FALSE, rownames=FALSE, 
           align=TRUE,
-          label="reprasch", 
+          label="tab:reprasch", 
           title="Replication \\texttt{eRm::RM} by \\texttt{lme4::glmer}")
 # Create the plot
 compare.rasch.long <- bind_rows(mutate(erm.rasch.est.se,group="eRm") %>% 
@@ -78,6 +78,11 @@ VerbAgg_W_lltm <- VerbAgg %>%
   dummy_columns(., select_columns=c("btype","situ","mode")) %>% 
   # remove first item in each basic parameter
   select(item,btype_scold, situ_self, mode_do, btype_scold, btype_shout)
+
+stargazer(VerbAgg_W_lltm, summary=FALSE, rownames=FALSE, 
+          align=TRUE,
+          label="tab:verbagg_w_lltm", 
+          title="VerbAgg\\_W\\_lltm")
 
 # Fit
 # eRm for LLTM
@@ -127,7 +132,7 @@ compare.lltm <- full_join(glmer.lltm.est.se, erm.lltm.est.se, by=c("item")) %>%
 
 stargazer(compare.lltm, summary=FALSE, rownames=FALSE, 
           align=TRUE,
-          label="replltm", 
+          label="tab:replltm", 
           title="Replication \\texttt{eRm::lltm} by \\texttt{lme4::glmer}")
 # Create the plot
 compare.lltm.long <- bind_rows(mutate(erm.lltm.est.se,group="eRm") %>% 
@@ -182,6 +187,11 @@ VerbAgg_W_lrsm <- VerbAgg_dendrified %>%
   # remove first item in each basic parameter
   select(item,btype_scold, btype_shout, situ_self, mode_do, node_node2)
 
+stargazer(as.data.frame(VerbAgg_W_lrsm), summary=FALSE, rownames=FALSE, 
+          align=TRUE,
+          label="tab:verbagg_w_lrsm", 
+          title="VerbAgg\\_W\\_lrsm")
+
 # Fit
 #== RSM
 # eRm for RSM
@@ -229,7 +239,7 @@ compare.rsm <- full_join(glmer.rsm.est.se, erm.rsm.est.se, by=c("item")) %>%
 
 stargazer(compare.rsm, summary=FALSE, rownames=FALSE, 
           align=TRUE,
-          label="reprsm", 
+          label="tab:reprsm", 
           title="Replication \\texttt{eRm::rsm} by \\texttt{lme4::glmer}")
 # Create the plot
 compare.rsm.long <- bind_rows(mutate(erm.rsm.est.se,group="eRm") %>% 
@@ -297,7 +307,7 @@ compare.lrsm <- full_join(glmer.lrsm.est.se, erm.lrsm.est.se, by=c("item")) %>%
 
 stargazer(compare.lrsm, summary=FALSE, rownames=FALSE, 
           align=TRUE,
-          label="replrsm", 
+          label="tab:replrsm", 
           title="Replication \\texttt{eRm::LRSM} by \\texttt{lme4::glmer}")
 # Create the plot
 compare.lrsm.long <- bind_rows(mutate(erm.lrsm.est.se,group="eRm") %>% 
