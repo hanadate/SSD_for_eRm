@@ -16,8 +16,8 @@ library(jtools)
 library(foreach)
 
 #===== RM, RSM
-a<-seq(0,1,.5) # Discrimination parameters
-d<-seq(-1,1,.5) # Difficulty parameters
+a<-seq(0,1,.5) # Slope parameters
+d<-seq(-1,1,.5) # Intercept parameters
 ad<-expand.grid(a,d) %>% 
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d))
@@ -94,8 +94,8 @@ var.rasch <- diag(vcov(glmer.rasch))
 #==== RSM
 # create data
 # Define item parameters
-a<-seq(0,1,.5) # Discrimination parameters
-d<-seq(-1,1,.5) # Difficulty parameters
+a<-seq(0,1,.5) # Slope parameters
+d<-seq(-1,1,.5) # Intercept parameters
 ad<-expand.grid(a,d) %>% 
   `colnames<-`(c("a","d")) %>% 
   mutate(a_d=paste0(a,"_",d),
